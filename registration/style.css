@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+
+.registration-form {
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 30px rgb(208, 208, 208);
+    border-radius: 30px;
+    background-color: white;
+}
+
