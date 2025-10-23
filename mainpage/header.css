@@ -1,0 +1,51 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60vw;
+    height: 6em;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    color: rgb(36, 36, 36);
+}
+
+
+/* Right side buttons */
+div#right-side {
+    display: flex; 
+    gap: 1em;
+}
+
+header a {
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.15s;
+
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+header a:hover {
+    background-color: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+#new-listing {
+    background-color: rgb(220, 20, 60);
+    color: white;
+    border-color: crimson;
+}
+
+#new-listing:hover {
+    background-color: rgb(190, 20, 60);
+}
+
+
+#nestly-logo {
+    font-size: 25pt;
+}

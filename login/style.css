@@ -15,29 +15,15 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: stretch;
     padding: 20px;
     width: 35em;
     background-color: rgb(255, 255, 255);
 }
 
 
-/* Name Surname divs settings */
-div#name-username {
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-between;
-    margin-bottom: 1em;
-}
-
-div#name-username div {
-    display: flex; 
-    flex-direction: column;
-    width: 17em;
-}
-
-
 /* All inputs */
-#nameid, #surnameid, #emailid, #passwordid, #numberid, #password-confirmid {
+#emailid, #passwordid {
     margin-bottom: 1em;
     border: 1px solid rgb(177, 177, 177);
     border-radius: 12px;
@@ -49,7 +35,7 @@ div#name-username div {
 }
 
 
-/* Registration button */
+/* Login button */
 #submitid {
     display: block;
     text-align: center;
@@ -62,7 +48,7 @@ div#name-username div {
     transition: 0.15s;
     cursor: pointer;
 
-    margin-top: 1em;
+    margin-top: 2em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -72,15 +58,15 @@ div#name-username div {
 }
 
 
-/* Login button */
-#login-link {
+/* Register button */
+#register-link {
     display: block;
     text-align: center;
     font-size: 19pt;
     text-decoration: none;
     background-color: rgb(255, 255, 255);
-    color: rgb(138, 138, 138);
-    border: 1px solid rgb(138, 138, 138);
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(100, 100, 100);
     border-radius: 20px;
     
     cursor: pointer;
@@ -91,22 +77,14 @@ div#name-username div {
     padding-bottom: 0.5em;
 }
 
-#login-link:hover {
+#register-link:hover {
     background-color: rgb(200, 200, 200);
     color: rgb(25, 25, 25);
     border-color: rgb(200, 200, 200);
 }
 
 
-#privacy-policyid {cursor: pointer;}
-
-a {color: rgb(85, 85, 85);}
-
-
-
-
 label {
-    color: rgb(138, 138, 138);
+    color: rgb(173, 173, 173);
     margin-bottom: 0.5em;
 }
-
