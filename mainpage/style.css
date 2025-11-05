@@ -13,8 +13,8 @@ main {
 section.listings {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 4em;
-    column-gap: 3em;
+    row-gap: 3vw;
+    column-gap: 2vw;
     padding-right: 2em;
 }
 
@@ -38,7 +38,7 @@ section.listings article {
     margin-left: 0.2em;
 }
 
-#for-rent {
+.for-rent {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(77, 77, 77);
     letter-spacing: 2px;
@@ -49,19 +49,19 @@ section.listings article {
     margin-bottom: 1em;
 }
 
-#flat-size {
+.flat-size {
     color: rgb(150, 150, 150);
     margin-bottom: 0.5em;
 }
 
-#flat-location {
+.flat-location {
     color: rgb(150, 150, 150);
     margin-bottom: 0.5em;
     border-bottom: 1px solid rgb(220, 220, 220);
     padding-bottom: 1em;
 }
 
-#flat-cost {
+.flat-cost {
     color: rgb(150, 150, 150);
     margin-top: 1em;
 }
@@ -72,4 +72,47 @@ section.listings article {
     font-size: 20pt;
     margin-right: 0.2em;
     letter-spacing: 1px;
+}
+
+
+/* Section of filters */
+#filters-section {
+    border: 1px solid rgb(223, 223, 223); 
+    border-radius: 10px;
+    margin-left: 2em;
+}
+
+section form {
+    display: flex; 
+    flex-direction: column;
+    padding: 1em;
+}
+
+section form label {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: rgb(60, 60, 60);
+}
+
+#search-button {
+    font-size: 15pt;
+    margin-top: 2em;
+    background-color: crimson;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+#search-button:hover {
+    background-color: rgb(190, 20, 60);
+}
+
+/* Not displayable listings class*/
+section.listings article.not-displayable {
+    display: none;
 }

@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -20,83 +21,97 @@
     </header>
 
     <main>
-        <section style="border: 1px solid grey; border-radius: 10px;">
-            <form action="#" method="get" style="color: lightcoral;">
+        <section id="filters-section">
+            <form id="search-form">
+                <label for="praha-location">Select a location:</label>
+                <select name="Praha" id="praha-locationid">
+                    <option value="praha1">Praha 1</option>
+                    <option value="praha2">Praha 2</option>
+                    <option value="praha3">Praha 3</option>
+                    <option value="praha4">Praha 4</option>
+                    <option value="praha5">Praha 5</option>
+                    <option value="praha6">Praha 6</option>
+                    <option value="praha7">Praha 7</option>
+                    <option value="praha8">Praha 8</option>
+                    <option value="praha9">Praha 9</option>
+                    <option value="praha10">Praha 10</option>
+                </select>
+                <input type="submit" value="Search" id="search-button">
                 
             </form>
         </section>
 
         <section class="listings">
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
 
-            <article>
+            <article class="listing-item">
                 <img src="appartaments.jpg" alt="apps">
-                <p id="for-rent">Apartment for rent</p>
-                <p id="flat-size">Flat 1+kk, 33 м²</p>
-                <p id="flat-location">Prague 9 - Prague 14 - Kyje</p>
-                <p id="flat-cost"><span id="strong">14 000</span> CZK/month</p>
+                <p class="for-rent">Apartment for rent</p>
+                <p class="flat-size">Flat 1+kk, 33 м²</p>
+                <p class="flat-location">Prague 9, Kyje</p>
+                <p class="flat-cost"><span id="strong">14 000</span> CZK/month</p>
             </article>
         </section>
     </main>

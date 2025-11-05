@@ -6,6 +6,7 @@
     <title>Registration</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -13,28 +14,35 @@
     </header>
 
     <main>
-        <form action="/Users/nerushid/zwa/zwa_semestral_project/data.csv" method="post" class="registration-form">
+        <form action="/Users/nerushid/zwa/zwa_semestral_project/data.csv" method="post" class="registration-form" id="form1">
             <div id="name-username">
                 <div>
                     <label for="nameid">First name:</label>
                     <input type="text" name="name" class="first-name" id="nameid" placeholder="First name">
+                    <div class="error" id="first-name-error"></div>
                 </div>
                 <div>
                     <label for="surnameid">Surname:</label>
                     <input type="text" name="surname" class="surname" id="surnameid" placeholder="Surname">
+                    <div class="error" id="surname-error"></div>
                 </div>
             </div>
 
             <label for="numberid">Phone number:</label>
             <input type="text" name="phone-number" id="numberid" placeholder="Your phone number">
+            <div class="error" id="phone-number-error"></div>
 
             <label for="emailid">Email:</label>
-            <input type="email" name="email" class="email" id="emailid" placeholder="Your email">
+            <input type="text" name="email" class="email" id="emailid" placeholder="Your email">
+            <div class="error" id="email-error"></div>
 
             <label for="passwordid">Password:</label>
             <input type="password" name="password" id="passwordid" placeholder="Password">
+            <div class="error" id="password-error"></div>
+
             <label for="password-confirmid">Password confirm:</label>
             <input type="password" name="password-confirm" id="password-confirmid" placeholder="Confirm password">
+            <div class="error" id="password-confirm-error"></div>
 
             <div>
                 <input type="checkbox" name="privacy-policy" value="accepted" id="privacy-policyid" required>

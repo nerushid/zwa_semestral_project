@@ -1,8 +1,9 @@
 header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 60vw;
+    justify-content: space-between;
+    padding-left: 2em;
+    padding-right: 2em;
     height: 6em;
     border-bottom: 1px solid rgb(220, 220, 220);
     color: rgb(36, 36, 36);
