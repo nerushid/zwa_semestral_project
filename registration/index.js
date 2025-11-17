@@ -1,9 +1,10 @@
 const form = document.getElementById("form1")
 
-form.addEventListener("submit", chekingInputs)
+if (form) {
+	form.addEventListener("submit", chekingInputs)
+}
 
 function chekingInputs(event) {
-    event.preventDefault()
     const firstNameValue = document.getElementById("nameid").value
     const lastNameValue = document.getElementById("surnameid").value
     const phoneNumberValue = document.getElementById("numberid").value
@@ -54,6 +55,9 @@ function chekingInputs(event) {
     if (passwordValue == "") {
         isFormValid = false
         document.getElementById("password-error").innerHTML = "* Password cannot be blank"
+    } else if (passwordValue.length < 6) {
+        isFormValid = false
+        document.getElementById("password-error").innerHTML = "* Password must be at least 6 characters long"
     } else {
         document.getElementById("password-error").innerHTML = ""
     }
@@ -70,7 +74,7 @@ function chekingInputs(event) {
     }
     
     
-    if (isFormValid) {
-        form.submit()
+    if (!isFormValid) {
+        event.preventDefault()
     }
 }

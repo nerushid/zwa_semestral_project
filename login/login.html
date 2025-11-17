@@ -9,19 +9,19 @@
 </head>
 <body>
     <header>
-        <p>NestlyHomes</p>
+        <a href="../mainpage/index.html">NestlyHomes</a>
     </header>
     <main>
         <form action="/Users/nerushid/zwa/zwa_semestral_project/data.csv" method="post">
-            <label for="emailid">Email:</label>
+            <label for="emailid">Email: <span class="required">*</span></label>
             <input type="email" name="email" class="email" id="emailid" placeholder="Your email address">
 
-            <label for="passwordid">Password:</label>
+            <label for="passwordid">Password: <span class="required">*</span></label>
             <input type="password" name="password" id="passwordid" placeholder="Password">
         
-            <input type="submit" name="submit" id="submitid" value="Login">
+            <input type="submit" name="submit" id="submitid" value="Sign in">
 
-            <a href="file:///Users/nerushid/zwa/zwa_semestral_project/registration/registration.html" id="register-link">Register</a>
+            <a href="../registration/registration.html" id="register-link">Register</a>
         </form>
     </main>
 </body>
