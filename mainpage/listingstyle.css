@@ -34,14 +34,13 @@ section.listings article {
 
 /* Listing text */
 .listings article p {
-    margin: 0;
     margin-left: 0.2em;
 }
 
 .for-rent {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(77, 77, 77);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: 700;
     border-bottom: 1px solid rgb(220, 220, 220);
     padding-bottom: 0.4em;
 
@@ -75,44 +74,3 @@ section.listings article {
 }
 
 
-/* Section of filters */
-#filters-section {
-    border: 1px solid rgb(223, 223, 223); 
-    border-radius: 10px;
-    margin-left: 2em;
-}
-
-section form {
-    display: flex; 
-    flex-direction: column;
-    padding: 1em;
-}
-
-section form label {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    font-weight: bold;
-    color: rgb(60, 60, 60);
-}
-
-#search-button {
-    font-size: 15pt;
-    margin-top: 2em;
-    background-color: crimson;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
-    cursor: pointer;
-    transition: 0.15s;
-}
-
-#search-button:hover {
-    background-color: rgb(190, 20, 60);
-}
-
-/* Not displayable listings class*/
-section.listings article.not-displayable {
-    display: none;
-}
