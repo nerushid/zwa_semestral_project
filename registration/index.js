@@ -7,7 +7,6 @@ if (form) {
 function chekingInputs(event) {
     const firstNameValue = document.getElementById("nameid").value
     const lastNameValue = document.getElementById("surnameid").value
-    const phoneNumberValue = document.getElementById("numberid").value
     const emailValue = document.getElementById("emailid").value
     const passwordValue = document.getElementById("passwordid").value
     const password2Value = document.getElementById("password-confirmid").value
@@ -27,17 +26,6 @@ function chekingInputs(event) {
         document.getElementById("surname-error").innerHTML = "* Last name cannot be blank"
     } else {
         document.getElementById("surname-error").innerHTML = ""
-    }
-
-    // Phone Number Validation
-    if (phoneNumberValue.trim() === "") {
-        isFormValid = false
-        document.getElementById("phone-number-error").innerHTML = "* Phone number cannot be blank"
-    } else if (!/^\+?[\d\s\-()]{7,20}$/.test(phoneNumberValue)) {
-        isFormValid = false
-        document.getElementById("phone-number-error").innerHTML = "* Invalid phone number"
-    } else {     
-        document.getElementById("phone-number-error").innerHTML = ""
     }
 
     // Email Validation

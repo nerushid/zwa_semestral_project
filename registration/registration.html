@@ -15,6 +15,7 @@
 
     <main>
         <form action="includes/formhandler.inc.php" method="post" class="registration-form" id="form1">
+            <h1>Registration</h1>
             <div id="name-username">
                 <div>
                     <label for="nameid">First name: <span class="required">*</span></label>
@@ -28,10 +29,6 @@
                 </div>
             </div>
 
-            <label for="numberid">Phone number: <span class="required">*</span></label>
-            <input type="text" name="phone-number" id="numberid" placeholder="Your phone number">
-            <div class="error" id="phone-number-error"></div>
-
             <label for="emailid">Email: <span class="required">*</span></label>
             <input type="text" name="email" class="email" id="emailid" placeholder="Your email">
             <div class="error" id="email-error"></div>
@@ -43,11 +40,6 @@
             <label for="password-confirmid">Password confirm: <span class="required">*</span></label>
             <input type="password" name="password-confirm" id="password-confirmid" placeholder="Confirm password">
             <div class="error" id="password-confirm-error"></div>
-
-            <div>
-                <input type="checkbox" name="privacy-policy" value="accepted" id="privacy-policyid" required>
-                <label for="privacy-policyid">I accept the terms of the <a href="">Privacy Policy.</a></label>
-            </div>
 
             <input type="submit" name="submit" id="submitid" value="Register">
             <a href="../login/login.html" id="login-link">Sign in</a>

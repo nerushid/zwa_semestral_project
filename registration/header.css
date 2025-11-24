@@ -5,6 +5,8 @@ header {
     height: 6em;
     border-bottom: 1px solid rgb(220, 220, 220);
     color: rgb(36, 36, 36);
+    background: white;
+    margin-bottom: 3vh;
 }
 
 header a {

@@ -2,11 +2,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
     height: 6em;
     border-bottom: 1px solid rgb(220, 220, 220);
     color: rgb(36, 36, 36);
-    background-color: white;
-    margin-bottom: 9vh;
 }
 
 header a {

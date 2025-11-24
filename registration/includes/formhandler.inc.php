@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         require_once "dbh.inc.php";
-
+        
         $query = "INSERT INTO users (firstname, surname, email, pwd) VALUES (?, ?, ?, ?);";
         $stmt = $pdo->prepare($query);
         $stmt->execute([$firstname, $surname, $email, $pwd]);
@@ -19,3 +19,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     header("Location: ../registration.html");
 }
+
