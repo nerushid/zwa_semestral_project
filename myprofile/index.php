@@ -26,8 +26,8 @@ if (!isset($_SESSION["user_id"])) {
         <h1>My Profile</h1>
         <?php print_user(); ?>
 
-        <button class="edit-profile">Edit Profile</button>
-        <button class="change-password">Change Password</button>
+        <a href="editprofile.php" class="edit-profile">Edit Profile</a>
+        <a href="changepwd.php" class="change-password">Change Password</a>
         <button class="delete-account">Delete Account</button>
     </main>
 </body>

@@ -37,6 +37,9 @@ p {
 
 /* Buttons Edit profile and Change password */
 .edit-profile, .change-password {
+    display: block;
+    text-align: center;
+    text-decoration: none;
     margin-top: 1rem;
     padding: 1.5rem;
     font-size: 1em;

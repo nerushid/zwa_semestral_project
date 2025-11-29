@@ -16,4 +16,10 @@ function popWindow(event) {
     cancelButton.addEventListener("click", () => {
         dialog.close();
     });
+
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) {
+            dialog.close();
+        }
+    });
 }

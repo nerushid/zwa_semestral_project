@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    max-width: 420px;
+    margin: 48px auto;
+    padding: 40px 32px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(60,80,120,0.10);
+    border: 1px solid #e3e8f0;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    color: #2d3e50;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+form .error {
+    color: rgb(255, 77, 77);
+    font-size: 10pt;
+    margin-bottom: 0.5em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 0.95rem;
+    color: #2d3e50;
+    font-weight: 500;
+    padding-left: 4px;
+}
+
+input[type="password"] {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 1px solid #d0d7e3;
+    border-radius: 8px;
+    background: #fff;
+    color: #444;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+input[type="password"]:focus {
+    border-color: rgba(60, 25, 190, 0.6);
+    box-shadow: 0 0 0 3px rgba(60, 25, 190, 0.1);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.save-button {
+    padding: 1rem;
+    font-size: 1em;
+    background-color: rgba(60, 25, 190);
+    color: white;
+    border: 1px solid rgba(60, 25, 190);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.2s;
+    box-shadow: 0 2px 10px rgba(60,80,120,0.09);
+}
+
+.save-button:hover {
+    background-color: rgba(50, 20, 170);
+    border-color: rgba(50, 20, 170);
+}
+
+.cancel-button {
+    display: block;
+    padding: 1rem;
+    font-size: 1em;
+    text-align: center;
+    color: rgb(100, 100, 100);
+    background: transparent;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.15s;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    border-color: crimson;
+    background-color: crimson;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    main {
+        max-width: 98vw;
+        padding: 18px 6vw;
+        margin: 24px auto;
+    }
+    h1 {
+        font-size: 1.4em;
+    }
+    input {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    .save-button, .cancel-button {
+        padding: 11px;
+        font-size: 0.98em;
+    }
+}

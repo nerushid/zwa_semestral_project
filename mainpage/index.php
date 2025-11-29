@@ -32,6 +32,8 @@ require_once 'includes/mainpage_view.inc.php';
         <button>Cancel</button>
     </dialog>
 
+    
+
     <main>
         <section id="filters-section">
 
