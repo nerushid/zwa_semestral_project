@@ -40,6 +40,10 @@ form .error {
     margin-bottom: 0.5em;
 }
 
+form input.error-input {
+    border-color: rgb(255, 77, 77); 
+}
+
 
 .form-group {
     display: flex;
@@ -54,8 +58,7 @@ label {
     padding-left: 4px;
 }
 
-input[type="text"],
-input[type="email"] {
+input[type="text"] {
     padding: 12px 16px;
     font-size: 1rem;
     border: 1px solid #d0d7e3;
@@ -66,8 +69,7 @@ input[type="email"] {
     outline: none;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus {
+input[type="text"]:focus {
     border-color: rgba(60, 25, 190, 0.6);
     box-shadow: 0 0 0 3px rgba(60, 25, 190, 0.1);
 }

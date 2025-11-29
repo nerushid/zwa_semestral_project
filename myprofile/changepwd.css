@@ -32,11 +32,18 @@ form {
     gap: 1.5rem;
 }
 
+
+/* Class error settings */
 form .error {
     color: rgb(255, 77, 77);
     font-size: 10pt;
     margin-bottom: 0.5em;
 }
+
+input[type="password"].error-input {
+    border-color: rgb(255, 77, 77);
+}
+
 
 .form-group {
     display: flex;

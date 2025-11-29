@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/config_session.php';
+require_once 'includes/changepwd_view.inc.php';
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../mainpage/index.php");
     die();
@@ -24,23 +25,7 @@ if (!isset($_SESSION["user_id"])) {
         <h1>Change Password</h1>
 
         <form action="includes/changepwd.inc.php" method="post" id="form">
-            <div class="form-group">
-                <label for="current-password">Current Password</label>
-                <input type="password" id="current-password" name="current_password" placeholder="Enter your current password">
-                <div class="error" id="current_password_error"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="new-password">New Password</label>
-                <input type="password" id="new-password" name="new_password" placeholder="Enter your new password">
-                <div class="error" id="new_password_error"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="confirm-password">Confirm New Password</label>
-                <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your new password">
-                <div class="error" id="confirm_password_error"></div>
-            </div>
+            <?php print_inputs(); ?>
 
             <div class="button-group">
                 <button type="submit" class="save-button">Change Password</button>
