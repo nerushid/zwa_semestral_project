@@ -1,3 +1,8 @@
+<?php
+require_once '../includes/config_session.php';
+require_once 'includes/login_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <script src="index.js" defer></script>
     <title>Login</title>
 </head>
 <body>
     <header>
-        <a href="../mainpage/index.html">NestlyHomes</a>
+        <a href="../mainpage/index.php">NestlyHomes</a>
     </header>
 
     <main>
-        <form action="/Users/nerushid/zwa/zwa_semestral_project/data.csv" method="post">
+        <form action="includes/login.inc.php" method="post" id="form">
             <h1>Login</h1>
-            <label for="emailid">Email: <span class="required">*</span></label>
-            <input type="email" name="email" class="email" id="emailid" placeholder="Your email address">
 
-            <label for="passwordid">Password: <span class="required">*</span></label>
-            <input type="password" name="password" id="passwordid" placeholder="Password">
-        
+            <?php print_inputs(); ?>
+
             <input type="submit" name="submit" id="submitid" value="Login">
 
             <a href="../registration/index.php" id="register-link">Sign Up</a>

@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 function is_inputs_empty(string $firstName, string $surname, string $email, string $pwd, string $pwd_confirm) {

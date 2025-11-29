@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pwd_confirm = $_POST["password-confirm"];
 
     try {
-        require_once 'dbh.inc.php';
+        require_once '../../includes/dbh.inc.php'; 
         require_once 'signup_model.inc.php';
         require_once 'signup_contr.inc.php';
 
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors['password_mismatch'] = 'Passwords do not match';
         }
 
-        require_once 'config_session.php';
+        require_once '../../includes/config_session.php';
         
         if ($errors) {
             $_SESSION["signup_errors"] = $errors;
@@ -47,7 +47,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         create_user($pdo, $firstName, $surname, $email, $pwd);
-        header("Location: ../../mainpage/index.html");
+
+        header("Location: ../../mainpage/index.php");
+        $pdo = null;
+        $stmt = null;
+        
+        die();
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }

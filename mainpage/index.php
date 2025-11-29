@@ -1,3 +1,8 @@
+<?php
+require_once '../includes/config_session.php';
+require_once 'includes/mainpage_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,19 +14,23 @@
     <link rel="stylesheet" href="header.css">
     <script src="filter.js" defer></script>
     <script src="layout.js" defer></script>
+    <script src="logout.js" defer></script>
 </head>
 
 <body>
     <header>
         <p id="nestly-logo">NestlyHomes</p>
         
-
         <div id="right-side">
-            <a href="../newlisting/newlisting.html" id="new-listing">Add New Listing</a>
-            <a href="../login/login.html">Login</a>
-            <a href="../registration/index.php">Sign Up</a>
+            <?php print_header(); ?>
         </div>
     </header>
+
+    <dialog id="logout-dialog">
+        <p>Are you sure you want to log out?</p>
+        <a href="../includes/logout.inc.php">Yes, Log Out</a>
+        <button>Cancel</button>
+    </dialog>
 
     <main>
         <section id="filters-section">

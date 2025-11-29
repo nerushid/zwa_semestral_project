@@ -1,3 +1,13 @@
+<?php
+require_once '../includes/config_session.php';
+require_once 'includes/myprofile_view.inc.php';
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../mainpage/index.php");
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +19,13 @@
 </head>
 <body>
     <header>
-        <a href="../mainpage/index.html">NestlyHomes</a>
+        <a href="../mainpage/index.php">NestlyHomes</a>
     </header>
 
     <main>
         <h1>My Profile</h1>
-        <p>First Name: John</p>
-        <p>Surname: Doe</p>
-        <p>Email: user@example.com</p>
-        <p>Phone Number: 123-456-7890</p>
+        <?php print_user(); ?>
+
         <button class="edit-profile">Edit Profile</button>
         <button class="change-password">Change Password</button>
         <button class="delete-account">Delete Account</button>

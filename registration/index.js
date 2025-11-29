@@ -32,7 +32,7 @@ function chekingInputs(event) {
     if (emailValue.trim() === "") {
         isFormValid = false
         document.getElementById("email-error").innerHTML = "* Email cannot be blank"
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue.trim())) {
         isFormValid = false
         document.getElementById("email-error").innerHTML = "* Invalid email format"
     } else {

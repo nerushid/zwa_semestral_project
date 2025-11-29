@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/config_session.php';
+require_once '../includes/config_session.php';
 require_once 'includes/signup_view.inc.php';
 ?>
 
@@ -15,7 +15,7 @@ require_once 'includes/signup_view.inc.php';
 </head>
 <body>
     <header>
-        <a href="../mainpage/index.html">NestlyHomes</a>
+        <a href="../mainpage/index.php">NestlyHomes</a>
     </header>
 
     <main>
@@ -31,7 +31,7 @@ require_once 'includes/signup_view.inc.php';
             <?php password_input(); ?>
 
             <input type="submit" name="submit" id="submitid" value="Sign Up">
-            <a href="../login/login.html" id="login-link">Login</a>
+            <a href="../login/index.php" id="login-link">Login</a>
             
         </form>
     </main>

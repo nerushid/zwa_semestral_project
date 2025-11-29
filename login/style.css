@@ -42,6 +42,17 @@ h1 {
 }
 
 
+/* Class error settings */
+form .error, form .phperror {
+    color: rgb(255, 77, 77);
+    font-size: 10pt;
+}
+
+form #email-error {
+    margin-bottom: 2em;
+}
+
+
 /* All inputs */
 #emailid, #passwordid {
     margin-bottom: 1em;
@@ -52,6 +63,12 @@ h1 {
     padding-bottom: 1em;
     padding-top: 1em;
     padding-left: 0.5em;
+}
+
+
+/* Input error */
+#emailid.error-input, #passwordid.error-input {
+    border-color: rgb(255, 77, 77);
 }
 
 
