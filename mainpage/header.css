@@ -67,61 +67,6 @@ header a:hover {
     color: white;
 }
 
-dialog {
-    border: 1px solid rgb(220, 220, 220);
-    border-radius: 16px;
-    padding: 2em;
-    box-shadow: 0 10px 40px rgba(60, 80, 120, 0.15);
-    min-width: 300px;
-}
-
-dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-dialog p {
-    color: rgb(60, 60, 60);
-    font-size: 1.1rem;
-    margin-bottom: 1.5em;
-    text-align: center;
-}
-
-dialog a,
-dialog button {
-    display: inline-block;
-    text-decoration: none;
-    padding: 0.7em 1.5em;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.15s;
-    border: 1px solid;
-    margin: 0.5em;
-}
-
-dialog a {
-    background-color: crimson;
-    color: white;
-    border-color: crimson;
-}
-
-dialog a:hover {
-    background-color: rgb(190, 20, 60);
-    border-color: rgb(190, 20, 60);
-}
-
-dialog button {
-    background-color: transparent;
-    color: rgb(100, 100, 100);
-    border-color: rgb(100, 100, 100);
-}
-
-dialog button:hover {
-    background-color: rgba(60, 25, 190);
-    color: white;
-    border-color: rgba(60, 25, 190);
-}
-
 #nestly-logo {
     font-size: 2rem;
 }

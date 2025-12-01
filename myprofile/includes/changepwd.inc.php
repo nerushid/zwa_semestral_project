@@ -9,6 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once '../../includes/dbh.inc.php';
         require_once 'changepwd_model.inc.php';
         require_once 'changepwd_contr.inc.php';
+        if (!isset($_SESSION["user_id"])) {
+            header("Location: ../../mainpage/index.php");
+            die();
+        }
 
         $errors = [];
         if (empty($currentPwd)) {

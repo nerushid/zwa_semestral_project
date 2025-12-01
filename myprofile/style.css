@@ -59,8 +59,10 @@ p {
 }
 
 /* Button Delete account */
-.delete-account {
+.deleteaccountBtn {
     display: block;
+    text-align: center;
+    text-decoration: none;
     width: 100%;
     margin: 24px 0 0 0;
     padding: 1rem;
@@ -74,9 +76,10 @@ p {
     transition: background 0.15s, box-shadow 0.2s, transform 0.1s, border-color 0.15s;
     box-shadow: 0 2px 10px rgba(60,80,120,0.09);
     outline: none;
+    box-sizing: border-box;
 }
 
-.delete-account:hover {
+.deleteaccountBtn:hover {
     background-color: rgb(190, 20, 60);
     border-color: rgb(190, 20, 60);
 }

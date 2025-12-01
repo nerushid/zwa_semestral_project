@@ -16,11 +16,27 @@ if (!isset($_SESSION["user_id"])) {
     <title>My Profile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="deleteaccount_dialog.css">
+    <script src="deleteaccount.js" defer></script>
 </head>
 <body>
     <header>
         <a href="../mainpage/index.php">NestlyHomes</a>
     </header>
+
+    <dialog id="deleteaccount-dialog">
+        <menu>
+            <h2>Delete Account</h2> 
+            <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+            
+            <div class="dialog-buttons">
+                <form action="includes/deleteaccount.inc.php" method="post" id="delete-form">
+                    <button type="submit">Delete</button>
+                </form>
+                <button id="cancel">Cancel</button>
+            </div>
+        </menu>
+    </dialog>
 
     <main>
         <h1>My Profile</h1>
@@ -28,7 +44,8 @@ if (!isset($_SESSION["user_id"])) {
 
         <a href="editprofile.php" class="edit-profile">Edit Profile</a>
         <a href="changepwd.php" class="change-password">Change Password</a>
-        <button class="delete-account">Delete Account</button>
+        <a href="#" id="deleteaccountBtn" class="deleteaccountBtn">Delete Account</a>
+        
     </main>
 </body>
 </html>

@@ -8,9 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     try {
+        require_once '../../includes/config_session.php';
         require_once '../../includes/dbh.inc.php'; 
         require_once 'editprofile_model.inc.php';
         require_once 'editprofile_contr.inc.php';
+        if (!isset($_SESSION["user_id"])) {
+            header("Location: ../../mainpage/index.php");
+            die();
+        }
 
         $errors = [];
 
@@ -29,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["surname_error"] = "Surname can only contain letters and spaces.";
         }
 
-        require_once '../../includes/config_session.php';
+        
 
         // Email validation
         if (empty($email)) {

@@ -12,6 +12,7 @@ require_once 'includes/mainpage_view.inc.php';
     <link rel="stylesheet" href="filterstyle.css">
     <link rel="stylesheet" href="listingstyle.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="logout_dialog.css">
     <script src="filter.js" defer></script>
     <script src="layout.js" defer></script>
     <script src="logout.js" defer></script>
@@ -27,12 +28,17 @@ require_once 'includes/mainpage_view.inc.php';
     </header>
 
     <dialog id="logout-dialog">
-        <p>Are you sure you want to log out?</p>
-        <a href="../includes/logout.inc.php">Yes, Log Out</a>
-        <button>Cancel</button>
+        <menu>
+            <h2>Log Out</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="dialog-buttons">
+                <a href="../includes/logout.inc.php">Yes, Log Out</a>
+                <button>Cancel</button>
+            </div>
+        </menu>
     </dialog>
 
-    
+
 
     <main>
         <section id="filters-section">
@@ -364,3 +370,9 @@ require_once 'includes/mainpage_view.inc.php';
     </main>
 </body>
 </html>
+
+<!-- 
+    я сейчас хочу заняться главной страничкой (её актуальное состояние ты можешь увидеть в файлах которые я тебе скидываю). 
+    Пока что мои объявление это просто придуманая мной квартира скопированая несколько раз что бы я видел как будут распологаться реальные объявления. 
+    То есть квартиры не подтягиваются с базы данных, потому что они туда пока что никак и не записываются
+-->
