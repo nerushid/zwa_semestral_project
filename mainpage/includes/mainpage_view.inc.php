@@ -9,7 +9,7 @@ function print_header() {
     */
 
     if (isset($_SESSION["user_id"])) {
-        echo '<a href="../newlisting/newlisting.html" id="new-listing2">+ Add New Listing</a>
+        echo '<a href="../newlisting/index.php" id="new-listing2">+ Add New Listing</a>
             <a href="../myprofile/index.php">My Profile</a>
             <a href="#" id="logout">Log Out</a>';
     } else {

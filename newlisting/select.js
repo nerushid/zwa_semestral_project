@@ -1,31 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const praSelect = document.getElementById("praha-selectid")
-	const districtSelect = document.getElementById("districtid")
-	if (!praSelect || !districtSelect) return
+    const prahaSelect = document.getElementById('praha-selectid');
+    const districtSelect = document.getElementById('districtid');
 
-	const groups = {}
-	Array.from(districtSelect.querySelectorAll("optgroup")).forEach(og => {
-		const label = (og.label || "").trim()
-		groups[label] = Array.from(og.querySelectorAll("option")).map(opt => opt.outerHTML)
-	})
+    if (!prahaSelect || !districtSelect) return;
 
-	const placeholder = '<option value="">-- select district --</option>'
+    const districtOptgroups = Array.from(districtSelect.querySelectorAll('optgroup'));
+    const explicitlySelectedOption = districtSelect.querySelector('option[selected]');
+    let serverSavedDistrict = "";
 
-	districtSelect.innerHTML = placeholder
-	districtSelect.disabled = true
+    if (explicitlySelectedOption) {
+        serverSavedDistrict = explicitlySelectedOption.value;
+    }
 
-	praSelect.addEventListener("change", function () {
-		const sel = (this.value || "").trim()
-		if (!sel || !groups[sel]) {
-			districtSelect.innerHTML = placeholder
-			districtSelect.disabled = true
-			return
-		}
+    const serverSavedPraha = prahaSelect.value;
 
-		districtSelect.innerHTML = placeholder + groups[sel].join("")
-		districtSelect.disabled = false
+    function rebuildOptions(prahaValue) {
+        districtSelect.innerHTML = `<option value="" selected>-- select district --</option>`;
+        districtSelect.disabled = true;
 
-		if (districtSelect.options.length > 1) districtSelect.selectedIndex = 1
-		districtSelect.focus()
-	})
-})
+        if (prahaValue !== "") {
+            const targetGroup = districtOptgroups.find(group => group.label === prahaValue);
+            
+            if (targetGroup) {
+                const allOptions = targetGroup.querySelectorAll('option');
+                allOptions.forEach(function(option) {
+                    const clone = option.cloneNode(true);
+                    clone.removeAttribute('selected'); 
+                    districtSelect.appendChild(clone);
+                });
+                districtSelect.disabled = false;
+            }
+        }
+    }
+
+    prahaSelect.addEventListener('change', function(e) {
+        rebuildOptions(e.target.value);
+        districtSelect.value = "";
+    });
+
+    if (serverSavedPraha !== "") {
+        rebuildOptions(serverSavedPraha);
+
+        if (serverSavedDistrict !== "") {
+            districtSelect.value = serverSavedDistrict;
+        } else {
+            districtSelect.value = "";
+        }
+    } else {
+        rebuildOptions("");
+        districtSelect.value = "";
+    }
+});

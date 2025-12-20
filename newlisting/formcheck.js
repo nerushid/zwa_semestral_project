@@ -67,9 +67,9 @@ function validateListingForm(event) {
     if (fileInput.files.length === 0) {
         isFormValid = false;
         document.getElementById('file-upload-errorid').innerHTML = "* Please upload at least one photo.";
-    } else if (fileInput.files.length > 5) {
+    } else if (fileInput.files.length > 10) {
         isFormValid = false;
-        document.getElementById('file-upload-errorid').innerHTML = "* You can upload a maximum of 5 photos.";
+        document.getElementById('file-upload-errorid').innerHTML = "* You can upload a maximum of 10 photos.";
     } else {
         document.getElementById('file-upload-errorid').innerHTML = "";
     }

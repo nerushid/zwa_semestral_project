@@ -42,6 +42,7 @@ form label {
 /* Селекты и инпуты общего вида */
 form select,
 form input[type="text"],
+form input[type="number"],
 form textarea {
     margin-bottom: 0.5em;
     border: 1px solid rgb(177, 177, 177);
