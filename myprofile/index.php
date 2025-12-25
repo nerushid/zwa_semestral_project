@@ -44,6 +44,7 @@ if (!isset($_SESSION["user_id"])) {
 
         <a href="editprofile.php" class="edit-profile">Edit Profile</a>
         <a href="changepwd.php" class="change-password">Change Password</a>
+        <a href="mylistings.php" class="mylistings">My Listings</a>
         <a href="#" id="deleteaccountBtn" class="deleteaccountBtn">Delete Account</a>
         
     </main>

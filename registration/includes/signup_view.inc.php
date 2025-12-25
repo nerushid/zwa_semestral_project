@@ -2,76 +2,48 @@
 declare(strict_types=1);
 
 function signup_inputs() {
-    // <div id="name-username">
-    //     <div>
-    //         <label for="nameid">First name: <span class="required">*</span></label>
-    //         <input type="text" name="name" class="first-name" id="nameid" placeholder="First name">
-    //         <div class="error" id="first-name-error"></div>
-    //     </div>
-    //     <div>
-    //         <label for="surnameid">Surname: <span class="required">*</span></label>
-    //         <input type="text" name="surname" class="surname" id="surnameid" placeholder="Surname">
-    //         <div class="error" id="surname-error"></div>
-    //     </div>
-    // </div>
-
-    // <label for="emailid">Email: <span class="required">*</span></label>
-    // <input type="text" name="email" class="email" id="emailid" placeholder="Your email">
-    // <div class="error" id="email-error"></div>
+    $firstNameValue = $_SESSION["signup_data"]["firstName"] ?? '';
+    $surnameValue = $_SESSION["signup_data"]["surname"] ?? '';
+    $emailValue = $_SESSION["signup_data"]["email"] ?? '';
+    
+    $firstNameError = $_SESSION["signup_errors"]["firstname_error"] ?? '';
+    $surnameError = $_SESSION["signup_errors"]["surname_error"] ?? '';
+    $emailError = $_SESSION["signup_errors"]["email_error"] ?? '';
+    
+    $firstNameClass = $firstNameError ? ' error-input' : '';
+    $surnameClass = $surnameError ? ' error-input' : '';
+    $emailClass = $emailError ? ' error-input' : '';
     
     echo '<div id="name-username">
-        <div>';
-        if (isset($_SESSION["signup_data"]["firstName"])) {
-            echo '<label for="nameid">First name: <span class="required">*</span></label>
-            <input type="text" name="name" class="first-name" id="nameid" placeholder="First name" 
-            value="'.htmlspecialchars($_SESSION["signup_data"]["firstName"]).'">
-            <div class="error" id="first-name-error"></div>';
-        } else {
-            echo '<label for="nameid">First name: <span class="required">*</span></label>
-            <input type="text" name="name" class="first-name" id="nameid" placeholder="First name">
-            <div class="error" id="first-name-error"></div>';
-        }
-    echo '</div>
-        <div>';
-        if (isset($_SESSION["signup_data"]["surname"])) {
-            echo '<label for="surnameid">Surname: <span class="required">*</span></label>
-            <input type="text" name="surname" class="surname" id="surnameid" placeholder="Surname" 
-            value="'.htmlspecialchars($_SESSION["signup_data"]["surname"]).'">
-            <div class="error" id="surname-error"></div>';
-        } else {
-            echo '<label for="surnameid">Surname: <span class="required">*</span></label>
-            <input type="text" name="surname" class="surname" id="surnameid" placeholder="Surname">
-            <div class="error" id="surname-error"></div>';
-        }
-    echo '</div>
-        </div>';
+        <div>
+            <label for="nameid">First name: <span class="required">*</span></label>
+            <input type="text" name="name" class="first-name' . $firstNameClass . '" id="nameid" placeholder="First name" 
+            value="' . htmlspecialchars($firstNameValue) . '">
+            <div class="error" id="first-name-error">' . ($firstNameError ? '* ' . $firstNameError : '') . '</div>
+        </div>
+        <div>
+            <label for="surnameid">Surname: <span class="required">*</span></label>
+            <input type="text" name="surname" class="surname' . $surnameClass . '" id="surnameid" placeholder="Surname" 
+            value="' . htmlspecialchars($surnameValue) . '">
+            <div class="error" id="surname-error">' . ($surnameError ? '* ' . $surnameError : '') . '</div>
+        </div>
+    </div>';
 
-    if (isset($_SESSION["signup_data"]["email"]) && isset($_SESSION["signup_errors"]["email_registred"])) {
-        echo '<label for="emailid">Email: <span class="required">*</span></label>
-        <input type="text" name="email" class="email" id="emailid" placeholder="Your email" 
-        value="'.htmlspecialchars($_SESSION["signup_data"]["email"]).'">
-        <div class="error" id="email-error">* '.$_SESSION["signup_errors"]["email_registred"].'</div>';
-    } elseif (isset($_SESSION["signup_data"]["email"])) {
-        echo '<label for="emailid">Email: <span class="required">*</span></label>
-        <input type="text" name="email" class="email" id="emailid" placeholder="Your email" 
-        value="'.htmlspecialchars($_SESSION["signup_data"]["email"]).'">
-        <div class="error" id="email-error"></div>';
-    } else {
-        echo '<label for="emailid">Email: <span class="required">*</span></label>
-        <input type="text" name="email" class="email" id="emailid" placeholder="Your email">
-        <div class="error" id="email-error"></div>';
-    }
+    echo '<label for="emailid">Email: <span class="required">*</span></label>
+    <input type="text" name="email" class="email' . $emailClass . '" id="emailid" placeholder="Your email" 
+    value="' . htmlspecialchars($emailValue) . '">
+    <div class="error" id="email-error">' . ($emailError ? '* ' . $emailError : '') . '</div>';
 }
 
 function password_input() {
-    // <input type="password" name="password-confirm" id="password-confirmid" placeholder="Confirm password">
-    // <div class="error" id="password-confirm-error"></div>
-
-    if (isset($_SESSION["signup_errors"]['password_mismatch'])) {
-        echo '<input type="password" name="password-confirm" id="password-confirmid" placeholder="Confirm password">
-            <div class="error" id="password-confirm-error">* '.$_SESSION["signup_errors"]['password_mismatch'].'</div>';
-    } else {
-        echo '<input type="password" name="password-confirm" id="password-confirmid" placeholder="Confirm password">
-            <div class="error" id="password-confirm-error"></div>';
-    }
+    $passwordError = $_SESSION["signup_errors"]['password_error'] ?? '';
+    $passwordConfirmError = $_SESSION["signup_errors"]['password_confirm_error'] ?? '';
+    
+    $passwordConfirmClass = $passwordConfirmError ? ' error-input' : '';
+    
+    echo '<input type="password" name="password-confirm" id="password-confirmid" placeholder="Confirm password" class="' . $passwordConfirmClass . '">
+        <div class="error" id="password-confirm-error">' . ($passwordConfirmError ? '* ' . $passwordConfirmError : '') . '</div>';
+    
+    unset($_SESSION['signup_errors']);
+    unset($_SESSION['signup_data']);
 }

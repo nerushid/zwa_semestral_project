@@ -15,6 +15,7 @@ if (!isset($_SESSION["user_id"])) {
     <title>Change Password</title>
     <link rel="stylesheet" href="changepwd.css">
     <link rel="stylesheet" href="header.css">
+    <script src="changepwd.js" defer></script>
 </head>
 <body>
     <header>

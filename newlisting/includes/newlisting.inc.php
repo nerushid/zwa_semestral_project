@@ -1,12 +1,23 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (empty($_POST) && empty($_FILES) && $_SERVER['CONTENT_LENGTH'] > 0) {
+        require_once '../../includes/config_session.php';
+        
+        $errors = [];
+        $errors["image_error"] = "Files are too large. Server limit exceeded.";
+        $_SESSION["newlisting_errors"] = $errors;
+        
+        header("Location: ../index.php");
+        die();
+    }
     
     try {
         require_once '../../includes/dbh.inc.php';
         require_once '../../includes/config_session.php';
         require_once 'newlisting_model.inc.php';
         require_once 'newlisting_contr.inc.php';
+        require_once 'image_resize.inc.php';
 
         if (!isset($_SESSION["user_id"])) {
             header("Location: ../../mainpage/index.php");
@@ -59,7 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         if (empty($description)) {
-            $errors["description_error"] = "Please enter the description.";
+            $errors["description_error"] = "Description is required.";
+        } elseif (strlen($description) < 20) {
+            $errors["description_error"] = "Description must be at least 20 characters.";
+        } elseif (!preg_match("/^[\p{L}\p{N}\s.,!?;:()\-–—'\"\/\n\r]+$/u", $description)) {
+            $errors["description_error"] = "Description contains invalid characters. Only letters, numbers, spaces, and basic punctuation are allowed.";
         }
 
         if ($images === null || is_file_upload_empty($images)) {
@@ -108,10 +123,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         for ($i = 0; $i < $imagesCount; $i++) {
             if ($images['error'][$i] === UPLOAD_ERR_OK) {
                 $extension = pathinfo($images['name'][$i], PATHINFO_EXTENSION);
-                $newFileName = "listing_" . $listingId . "_" . uniqid() . "." . $extension;
+
+                $uniqueName = "listing_" . $listingId . "_" . uniqid();
+
+                $newFileName = $uniqueName . "." . $extension;
                 $destination = "../../uploads/" . $newFileName;
 
+                $fileNameThumb = "thumb_" . $uniqueName . "." . $extension;
+                $destinationThumb = "../../uploads/" . $fileNameThumb;
+
+                $fileNameMedium = "medium_" . $uniqueName . "." . $extension;
+                $destinationMedium = "../../uploads/" . $fileNameMedium;
+                
+
                 if (move_uploaded_file($images['tmp_name'][$i], $destination)) {
+                    resize_image($destination, $destinationThumb, 280);
+                    resize_image($destination, $destinationMedium, 600);
+
                     $imagePaths[] = $newFileName;
                 }
             }

@@ -1,0 +1,76 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2em;
+    padding-right: 2em;
+    height: 6em;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    color: rgb(36, 36, 36);
+    box-shadow: 0 10px 20px rgb(231, 231, 231);
+}
+
+
+/* Right side buttons */
+div#right-side {
+    display: flex; 
+    gap: 1em;
+}
+
+header a {
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.15s;
+
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+header a:hover {
+    background-color: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+/* Nestly Logo  */
+header a#nestly-logo {
+    text-decoration: none;
+    color: rgb(36, 36, 36);
+    font-size: 2rem;
+    border: none;
+    padding: 0;
+}
+
+header a#nestly-logo:hover {
+    color: rgb(36, 36, 36);
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+/* New Listing (logged in) */
+#new-listing2:hover {
+    background-color: crimson;
+    border-color: crimson;
+}
+
+#new-listing:hover {
+    background-color: rgb(190, 20, 60);
+}
+
+/* Log Out btn */
+#logout {
+    background-color: transparent;
+    border-color: crimson;
+    color: crimson;
+}
+
+#logout:hover {
+    background-color: crimson;
+    color: white;
+}

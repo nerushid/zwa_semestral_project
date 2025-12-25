@@ -1,23 +1,44 @@
-const prahaSelect = document.getElementById('praha-selectid');
-const districtSelect = document.getElementById('districtid');
-const districtOptgroups = Array.from(districtSelect.querySelectorAll('optgroup'))
-districtSelect.innerHTML = `<option value="">Any District</option>`
+document.addEventListener('DOMContentLoaded', () => {
+    const sortSelect = document.getElementById('sort-select');
+    const filterForm = document.querySelector('#filters-section form'); 
 
+    if (sortSelect && filterForm) {
+        
+        const injectSortAndSubmit = (submitNow = false) => {
+            const selectedSort = sortSelect.value;
 
-prahaSelect.addEventListener('change', function(e) {
-    const prahaValue = e.target.value
+            let hiddenInput = filterForm.querySelector('input[name="sort"]');
+            if (!hiddenInput) {
+                hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'sort';
+                filterForm.appendChild(hiddenInput);
+            }
 
-    districtSelect.innerHTML = `<option value="">Any District</option>`
-    districtSelect.disabled = true
+            hiddenInput.value = selectedSort;
 
-    if (prahaValue != "") {
-        const targetGroup = districtOptgroups.find(group => group.label === prahaValue)
-        const allOptions = targetGroup.querySelectorAll('option')
-        if (targetGroup) {
-            allOptions.forEach(function(option) {
-                districtSelect.appendChild(option.cloneNode(true))
-            })
-            districtSelect.disabled = false
-        }
+            if (submitNow) {
+                const pageInput = filterForm.querySelector('input[name="page"]');
+                if (pageInput) pageInput.remove();
+                
+                filterForm.submit();
+            }
+        };
+
+        sortSelect.addEventListener('change', function() {
+            injectSortAndSubmit(true);
+        });
+
+        filterForm.addEventListener('submit', function() {
+            injectSortAndSubmit(false);
+        });
     }
-})
+
+    // Reset filters button
+    const resetButton = document.getElementById('reset-filters');
+    if (resetButton) {
+        resetButton.addEventListener('click', () => {
+            window.location.href = window.location.pathname;
+        });
+    }
+});

@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"];
+    $email = trim($_POST["email"]);
     $pwd = $_POST["password"];
 
     try {
@@ -10,17 +10,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $errors = [];
 
-        if (is_inputs_empty($email, $pwd)){
-            $errors['empty_input'] = 'Fill in all fields!';
+        // Email validation
+        if (empty($email)) {
+            $errors['email_error'] = 'Email is required.';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email_error'] = 'Invalid email format.';
         }
 
-        $result = get_user($pdo, $email);
+        // Password validation
+        if (empty($pwd)) {
+            $errors['password_error'] = 'Password is required.';
+        }
 
-        if (is_user_wrong($result)){
-            $errors['user_wrong'] = 'The provided username and password combination is not valid!';
-        } else {
-            if (is_password_wrong($pwd, $result["pwd"])) {
-                $errors['password_wrong'] = 'The provided username and password combination is not valid!';
+        // Check user credentials if no format errors
+        if (empty($errors)) {
+            $result = get_user($pdo, $email);
+
+            if (!$result) {
+                $errors['login_error'] = 'Incorrect email or password.';
+            } elseif (!password_verify($pwd, $result["pwd"])) {
+                $errors['login_error'] = 'Incorrect email or password.';
             }
         }
 
@@ -61,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die();
 
     } catch (PDOException $e) {
-        die("Query failed" . $e->getMessage());
+        die("Query failed: " . $e->getMessage());
     }
 } else {
     header("Location: ../index.php");

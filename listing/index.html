@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Details - NestlyHomes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../mainpage/header.css">
+    <script src="slider.js" defer></script>
+</head>
+<body>
+    <header>
+        <p id="nestly-logo">NestlyHomes</p>
+        <div id="right-side">
+            <a href="../mainpage/index.php">Back to Listings</a>
+            <a href="../login/index.php">Login</a>
+            <a href="../registration/index.php">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="listing-detail">
+            <div class="image-gallery">
+                <div class="main-image-container">
+                    <img src="../uploads/placeholder.jpg" alt="apartment main image" class="main-image" id="mainImage">
+                    <button class="gallery-btn prev-btn" id="prevBtn">‹</button>
+                    <button class="gallery-btn next-btn" id="nextBtn">›</button>
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="../uploads/placeholder.jpg" alt="thumbnail" class="thumbnail active" data-index="0">
+                    <img src="../uploads/placeholder.jpg" alt="thumbnail" class="thumbnail" data-index="1">
+                    <img src="../uploads/placeholder.jpg" alt="thumbnail" class="thumbnail" data-index="2">
+                </div>
+            </div>
+
+            <div class="listing-info">
+                <div class="info-header">
+                    <h1>Apartment for Rent</h1>
+                    <p class="price"><span class="price-amount">25,000</span> CZK/month</p>
+                </div>
+
+                <div class="basic-info">
+                    <div class="info-item">
+                        <span class="info-label">Layout:</span>
+                        <span class="info-value">2+kk</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Area:</span>
+                        <span class="info-value">55 m²</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location:</span>
+                        <span class="info-value">Praha 3, Žižkov</span>
+                    </div>
+                </div>
+
+                <div class="description-section">
+                    <h2>Description</h2>
+                    <p class="description">
+                        Beautiful apartment in the heart of Žižkov. Fully furnished with modern amenities. 
+                        Close to public transportation, restaurants, and shops. Perfect for young professionals or couples.
+                        The apartment features a spacious living room, modern kitchen, comfortable bedroom, and a renovated bathroom.
+                    </p>
+                </div>
+
+                <div class="contact-section">
+                    <h2>Contact Owner</h2>
+                    <div class="contact-info">
+                        <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Email:</strong> <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

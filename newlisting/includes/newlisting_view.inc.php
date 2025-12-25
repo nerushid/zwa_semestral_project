@@ -4,42 +4,44 @@ declare(strict_types=1);
 function print_praha_selection(): void {
     $selected = $_SESSION['newlisting_data']['praha'] ?? '';
     $error = $_SESSION['newlisting_errors']['praha_error'] ?? '';
+    $errorClass = $error ? ' error-input' : '';
     
     echo '<!-- Praha selection (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) -->
         <label for="praha-selectid">Choose Praha: <span class="required">*</span></label>
-        <select id="praha-selectid" name="praha">
+        <select id="praha-selectid" name="praha" class="' . $errorClass . '">
             <option value="">-- select Praha --</option>';
-    
-    $prahas = ['Praha 1', 'Praha 2', 'Praha 3', 'Praha 4', 'Praha 5', 'Praha 6', 'Praha 7', 'Praha 8', 'Praha 9', 'Praha 10'];
+
+    $prahas = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
     foreach ($prahas as $praha) {
         $isSelected = ($selected === $praha) ? ' selected' : '';
-        echo '<option value="' . $praha . '"' . $isSelected . '>' . $praha . '</option>';
+        echo '<option value="' . $praha . '"' . $isSelected . '>Prague ' . $praha . '</option>';
     }
     
     echo '</select>
-        <div id="praha-select-errorid" class="error">' . $error . '</div>';
+        <div id="praha-select-errorid" class="error">' . ($error ? '* ' . $error : '') . '</div>';
 }
 
 function print_district_selection(): void {
     $selected = $_SESSION['newlisting_data']['district'] ?? '';
     $error = $_SESSION['newlisting_errors']['district_error'] ?? '';
+    $errorClass = $error ? ' error-input' : '';
     
     $districts = [
-        'Praha 1' => ['Hradčany', 'Josefov', 'Malá Strana', 'Nové Město', 'Staré Město'],
-        'Praha 2' => ['Nusle', 'Vinohrady', 'Vyšehrad'],
-        'Praha 3' => ['Žižkov'],
-        'Praha 4' => ['Braník', 'Háje', 'Hodkovičky', 'Chodov', 'Cholupice', 'Kamýk', 'Komořany', 'Krč', 'Kunratice', 'Lhotka', 'Libuš', 'Michle', 'Modřany', 'Písnice', 'Podolí', 'Šeberov', 'Točná', 'Újezd', 'Záběhlice'],
-        'Praha 5' => ['Hlubočepy', 'Holyně', 'Jinonice', 'Košíře', 'Lahovice', 'Lipence', 'Lochkov', 'Malá Chuchle', 'Motol', 'Radlice', 'Radotín', 'Řeporyje', 'Slivenec', 'Smíchov', 'Sobín', 'Stodůlky', 'Třebonice', 'Velká Chuchle', 'Zadní Kopanina', 'Zbraslav', 'Zličín'],
-        'Praha 6' => ['Břevnov', 'Bubeneč', 'Dejvice', 'Liboc', 'Lysolaje', 'Nebušice', 'Přední Kopanina', 'Ruzyně', 'Řepy', 'Sedlec', 'Střešovice', 'Suchdol', 'Veleslavín', 'Vokovice'],
-        'Praha 7' => ['Holešovice', 'Troja'],
-        'Praha 8' => ['Bohnice', 'Březiněves', 'Čimice', 'Dolní Chabry', 'Ďáblice', 'Karlín', 'Kobylisy', 'Libeň', 'Střížkov'],
-        'Praha 9' => ['Běchovice', 'Čakovice', 'Černý Most', 'Dolní Počernice', 'Hloubětín', 'Horní Počernice', 'Hostavice', 'Hrdlořezy', 'Kbely', 'Klánovice', 'Koloděje', 'Kyje', 'Letňany', 'Miškovice', 'Prosek', 'Satalice', 'Třeboradice', 'Újezd nad Lesy', 'Vinoř', 'Vysočany'],
-        'Praha 10' => ['Benice', 'Dolní Měcholupy', 'Dubeč', 'Hájek', 'Horní Měcholupy', 'Hostivař', 'Kolovraty', 'Královice', 'Křeslice', 'Lipany', 'Malešice', 'Nedvězí', 'Petrovice', 'Pitkovice', 'Strašnice', 'Štěrboholy', 'Uhříněves', 'Vršovice'],
+        '1' => ['Hradčany', 'Josefov', 'Malá Strana', 'Nové Město', 'Staré Město'],
+        '2' => ['Nusle', 'Vinohrady', 'Vyšehrad'],
+        '3' => ['Žižkov'],
+        '4' => ['Braník', 'Háje', 'Hodkovičky', 'Chodov', 'Cholupice', 'Kamýk', 'Komořany', 'Krč', 'Kunratice', 'Lhotka', 'Libuš', 'Michle', 'Modřany', 'Písnice', 'Podolí', 'Šeberov', 'Točná', 'Újezd', 'Záběhlice'],
+        '5' => ['Hlubočepy', 'Holyně', 'Jinonice', 'Košíře', 'Lahovice', 'Lipence', 'Lochkov', 'Malá Chuchle', 'Motol', 'Radlice', 'Radotín', 'Řeporyje', 'Slivenec', 'Smíchov', 'Sobín', 'Stodůlky', 'Třebonice', 'Velká Chuchle', 'Zadní Kopanina', 'Zbraslav', 'Zličín'],
+        '6' => ['Břevnov', 'Bubeneč', 'Dejvice', 'Liboc', 'Lysolaje', 'Nebušice', 'Přední Kopanina', 'Ruzyně', 'Řepy', 'Sedlec', 'Střešovice', 'Suchdol', 'Veleslavín', 'Vokovice'],
+        '7' => ['Holešovice', 'Troja'],
+        '8' => ['Bohnice', 'Březiněves', 'Čimice', 'Dolní Chabry', 'Ďáblice', 'Karlín', 'Kobylisy', 'Libeň', 'Střížkov'],
+        '9' => ['Běchovice', 'Čakovice', 'Černý Most', 'Dolní Počernice', 'Hloubětín', 'Horní Počernice', 'Hostavice', 'Hrdlořezy', 'Kbely', 'Klánovice', 'Koloděje', 'Kyje', 'Letňany', 'Miškovice', 'Prosek', 'Satalice', 'Třeboradice', 'Újezd nad Lesy', 'Vinoř', 'Vysočany'],
+        '10' => ['Benice', 'Dolní Měcholupy', 'Dubeč', 'Hájek', 'Horní Měcholupy', 'Hostivař', 'Kolovraty', 'Královice', 'Křeslice', 'Lipany', 'Malešice', 'Nedvězí', 'Petrovice', 'Pitkovice', 'Strašnice', 'Štěrboholy', 'Uhříněves', 'Vršovice'],
     ];
     
     echo '<!-- District selection -->
         <label for="districtid">District: <span class="required">*</span></label>
-        <select name="district" id="districtid">';
+        <select name="district" id="districtid" class="' . $errorClass . '">';
     
     foreach ($districts as $praha => $districtList) {
         echo '<optgroup label="' . $praha . '">';
@@ -51,16 +53,17 @@ function print_district_selection(): void {
     }
     
     echo '</select>
-        <div id="district-errorid" class="error">' . $error . '</div>';
+        <div id="district-errorid" class="error">' . ($error ? '* ' . $error : '') . '</div>';
 }
 
 function print_layout_selection(): void {
     $selected = $_SESSION['newlisting_data']['layout'] ?? '';
     $error = $_SESSION['newlisting_errors']['layout_error'] ?? '';
+    $errorClass = $error ? ' error-input' : '';
     
     echo '<!-- Layout selection -->
         <label for="layoutid">Layout: <span class="required">*</span></label>
-        <select name="layout" id="layoutid">
+        <select name="layout" id="layoutid" class="' . $errorClass . '">
             <option value="">-- select layout --</option>';
     
     $layouts = ['1+kk', '2+kk', '3+kk', '4+kk', '5+kk', '1+1', '2+1', '3+1', '4+1', '5+1'];
@@ -70,41 +73,46 @@ function print_layout_selection(): void {
     }
     
     echo '</select>
-        <div id="layout-errorid" class="error">' . $error . '</div>';
+        <div id="layout-errorid" class="error">' . ($error ? '* ' . $error : '') . '</div>';
 }
 
 function print_area_input(): void {
     $value = $_SESSION['newlisting_data']['area'] ?? '';
     $error = $_SESSION['newlisting_errors']['area_error'] ?? '';
+    $errorClass = $error ? ' error-input' : '';
     
     echo '<!-- Area selection -->
         <label for="areaid">Area (m²): <span class="required">*</span></label>
-        <input type="number" name="area" id="areaid" placeholder="Area in m²" value="' . htmlspecialchars($value) . '">
-        <div id="area-errorid" class="error">' . $error . '</div>';
+        <input type="number" name="area" id="areaid" placeholder="Area in m²" value="' . htmlspecialchars($value) . '" class="' . $errorClass . '">
+        <div id="area-errorid" class="error">' . ($error ? '* ' . $error : '') . '</div>';
 }
 
 function print_price_input(): void {
     $value = $_SESSION['newlisting_data']['price'] ?? '';
     $error = $_SESSION['newlisting_errors']['price_error'] ?? '';
+    $errorClass = $error ? ' error-input' : '';
     
     echo '<!-- Price selection -->
         <label for="priceid">Price (CZK): <span class="required">*</span></label>
-        <input type="number" name="price" id="priceid" placeholder="Price in CZK" value="' . htmlspecialchars($value) . '">
-        <div id="price-errorid" class="error">' . $error . '</div>';
+        <input type="number" name="price" id="priceid" placeholder="Price in CZK" value="' . htmlspecialchars($value) . '" class="' . $errorClass . '">
+        <div id="price-errorid" class="error">' . ($error ? '* ' . $error : '') . '</div>';
 }
 
 function print_description_input(): void {
     $value = $_SESSION['newlisting_data']['description'] ?? '';
     $error = $_SESSION['newlisting_errors']['description_error'] ?? '';
+    $errorClass = $error ? ' error-input' : '';
     
     echo '<!-- Description input -->
         <label for="descriptionid">Description: <span class="required">*</span></label>
-        <textarea name="description" id="descriptionid" placeholder="Description of the property">' . htmlspecialchars($value) . '</textarea>
-        <div id="description-errorid" class="error">' . $error . '</div>';
+        <textarea name="description" id="descriptionid" placeholder="Description of the property" class="' . $errorClass . '">' . htmlspecialchars($value) . '</textarea>
+        <div id="description-errorid" class="error">' . ($error ? '* ' . $error : '') . '</div>';
 }
 
 function print_image_input(): void {
     $error = $_SESSION['newlisting_errors']['image_error'] ?? '';
+    $errorClass = $error ? ' error-input-file' : '';
+    
     echo '<!-- Image upload -->
         <label for="file-upload">Upload Photos (max 10): <span class="required">*</span></label>
         <input
@@ -113,8 +121,9 @@ function print_image_input(): void {
             name="listingImages[]" 
             multiple 
             accept="image/*"
+            class="' . $errorClass . '"
         >
-        <div id="file-upload-errorid" class="error">' . $error . '</div>
+        <div id="file-upload-errorid" class="error">' . ($error ? '* ' . $error : '') . '</div>
         <div id="preview-container"></div>';
 }
 
@@ -126,6 +135,9 @@ function print_newlisting_form(): void {
     print_price_input();
     print_description_input();
     print_image_input();
+    
+    unset($_SESSION['newlisting_errors']);
+    unset($_SESSION['newlisting_data']);
 }
 
 

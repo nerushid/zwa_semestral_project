@@ -1,13 +1,17 @@
 const form = document.getElementById("form");
 
 if (form) {
-    form.addEventListener("submit", chekingInputs)
+    form.addEventListener("submit", checkingInputs)
 }
 
-function chekingInputs(event) {
+function checkingInputs(event) {
     const emailInput = document.getElementById("emailid")
     const passwordInput = document.getElementById("passwordid")
     let isFormValid = true
+    
+    // Clear error classes first
+    emailInput.classList.remove("error-input")
+    passwordInput.classList.remove("error-input")
     
     // Email Validation
     if (!emailInput.value.trim()) {
@@ -19,7 +23,6 @@ function chekingInputs(event) {
         emailInput.classList.add("error-input")
         document.getElementById("email-error").innerHTML = "* Invalid email format"
     } else {
-        emailInput.classList.remove("error-input")
         document.getElementById("email-error").innerHTML = ""
     }
 
@@ -29,16 +32,28 @@ function chekingInputs(event) {
         passwordInput.classList.add("error-input")
         document.getElementById("password-error").innerHTML = "* Password cannot be blank"
     } else {
-        passwordInput.classList.remove("error-input")
         document.getElementById("password-error").innerHTML = ""
     }
 
-    if (document.getElementById("password-error").innerHTML === "" && document.getElementById("email-error").innerHTML === "") {
-        document.getElementById("password-error")?.remove();
-        document.getElementById("email-error")?.remove();
-    }
     if (!isFormValid) {
         event.preventDefault()
-        document.querySelector(".phperror")?.remove()   
     }
 }
+
+// Real-time validation - remove error styling when user starts typing
+document.addEventListener('DOMContentLoaded', function() {
+    const emailInput = document.getElementById('emailid')
+    const passwordInput = document.getElementById('passwordid')
+    
+    if (emailInput) {
+        emailInput.addEventListener('input', function() {
+            this.classList.remove('error-input')
+        })
+    }
+    
+    if (passwordInput) {
+        passwordInput.addEventListener('input', function() {
+            this.classList.remove('error-input')
+        })
+    }
+})

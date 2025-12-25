@@ -74,6 +74,23 @@ div#name-username div {
     padding-bottom: 1em;
     padding-top: 1em;
     padding-left: 0.5em;
+    transition: all 0.2s ease;
+}
+
+#nameid:focus, #surnameid:focus, #emailid:focus, #passwordid:focus, #password-confirmid:focus {
+    outline: none;
+    border-color: crimson;
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+}
+
+/* Error input styling */
+.error-input {
+    border-color: crimson !important;
+    background-color: rgba(220, 20, 60, 0.05) !important;
+}
+
+.error-input:focus {
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.15) !important;
 }
 
 

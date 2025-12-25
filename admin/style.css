@@ -1,0 +1,426 @@
+/* ========================================
+   GENERAL STYLES
+   ======================================== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 1400px;
+    margin: 2em auto;
+    padding: 2em;
+}
+
+h1 {
+    text-align: center;
+    color: #2d3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2em;
+}
+
+h2 {
+    color: #2d3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+}
+
+/* ========================================
+   TABS
+   ======================================== */
+.tabs {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+    border-bottom: 2px solid #e3e8f0;
+}
+
+.tab-btn {
+    padding: 1em 2em;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: crimson;
+}
+
+.tab-btn.active {
+    color: crimson;
+    border-bottom-color: crimson;
+}
+
+/* ========================================
+   CONTROLS
+   ======================================== */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.search-form,
+.sort-form {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.search-form input[type="number"],
+.sort-form select {
+    padding: 0.7em 1em;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.search-form button,
+.sort-form button,
+.reset-btn {
+    padding: 0.7em 1.5em;
+    background: crimson;
+    color: white;
+    border: 1px solid crimson;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.search-form button:hover,
+.sort-form button:hover {
+    background: rgb(190, 20, 60);
+    border-color: rgb(190, 20, 60);
+}
+
+.reset-btn {
+    background: white;
+    color: rgb(100, 100, 100);
+    border-color: rgb(200, 200, 200);
+}
+
+.reset-btn:hover {
+    background: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+/* ========================================
+   TABLE
+   ======================================== */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table thead {
+    background: #f8f9fa;
+}
+
+.admin-table th {
+    padding: 1em;
+    text-align: left;
+    font-weight: 600;
+    color: rgb(60, 60, 60);
+    border-bottom: 2px solid #e3e8f0;
+}
+
+.admin-table td {
+    padding: 1em;
+    border-bottom: 1px solid #e3e8f0;
+    color: rgb(60, 60, 60);
+}
+
+.admin-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.admin-table .actions {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+.badge {
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge.admin {
+    background: rgba(220, 20, 60, 0.1);
+    color: crimson;
+}
+
+.badge.user {
+    background: rgba(60, 25, 190, 0.1);
+    color: rgba(60, 25, 190);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn-view,
+.btn-promote,
+.btn-demote,
+.btn-delete {
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.btn-view {
+    background: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+.btn-view:hover {
+    background: rgba(50, 20, 170);
+    border-color: rgba(50, 20, 170);
+}
+
+.btn-promote {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.btn-promote:hover {
+    background: #218838;
+    border-color: #218838;
+}
+
+.btn-demote {
+    background: #ffc107;
+    color: #333;
+    border-color: #ffc107;
+}
+
+.btn-demote:hover {
+    background: #e0a800;
+    border-color: #e0a800;
+}
+
+.btn-delete {
+    background: white;
+    color: crimson;
+    border-color: crimson;
+}
+
+.btn-delete:hover {
+    background: crimson;
+    color: white;
+}
+
+/* ========================================
+   USER LISTINGS HEADER
+   ======================================== */
+.user-listings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.back-btn {
+    padding: 0.7em 1.5em;
+    background: white;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+/* ========================================
+   NO RESULTS
+   ======================================== */
+.no-results {
+    text-align: center;
+    padding: 3em;
+    color: rgb(150, 150, 150);
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 2em;
+}
+
+.pagination a,
+.pagination .current-page {
+    padding: 0.6em 1em;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 8px;
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    transition: 0.15s;
+    font-weight: 500;
+}
+
+.pagination .dots {
+    padding: 0.6em 0.5em;
+    color: rgb(150, 150, 150);
+    font-weight: bold;
+    cursor: default;
+}
+
+.pagination a:hover {
+    background-color: rgba(60, 25, 190, 0.1);
+    border-color: rgba(60, 25, 190);
+    color: rgba(60, 25, 190);
+}
+
+.pagination .current-page {
+    background-color: crimson;
+    color: white;
+    border-color: crimson;
+}
+
+/* ========================================
+   DIALOG
+   ======================================== */
+dialog {
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 10px 40px rgba(60, 80, 120, 0.15);
+    min-width: 400px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+dialog menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin: 0;
+}
+
+dialog h2 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+dialog p {
+    margin-bottom: 2em;
+    color: rgb(60, 60, 60);
+}
+
+.dialog-buttons {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    justify-content: center;
+}
+
+dialog form {
+    margin: 0;
+}
+
+.confirm-btn,
+.cancel-btn {
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.confirm-btn {
+    background: crimson;
+    color: white;
+    border-color: crimson;
+}
+
+.confirm-btn:hover {
+    background: rgb(190, 20, 60);
+    border-color: rgb(190, 20, 60);
+}
+
+.cancel-btn {
+    background: white;
+    color: rgb(100, 100, 100);
+    border-color: rgb(200, 200, 200);
+}
+
+.cancel-btn:hover {
+    background: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .admin-table {
+        min-width: 800px;
+    }
+
+    .user-listings-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+    }
+}

@@ -1,6 +1,9 @@
 <?php
 require_once '../includes/config_session.php';
 require_once 'includes/signup_view.inc.php';
+
+$passwordError = $_SESSION['signup_errors']['password_error'] ?? '';
+$passwordClass = $passwordError ? ' error-input' : '';
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +27,8 @@ require_once 'includes/signup_view.inc.php';
             <?php signup_inputs(); ?>
 
             <label for="passwordid">Password: <span class="required">*</span></label>
-            <input type="password" name="password" id="passwordid" placeholder="Password">
-            <div class="error" id="password-error"></div>
+            <input type="password" name="password" id="passwordid" placeholder="Password" class="<?php echo $passwordClass; ?>">
+            <div class="error" id="password-error"><?php echo $passwordError ? '* ' . $passwordError : ''; ?></div>
 
             <label for="password-confirmid">Password confirm: <span class="required">*</span></label>
             <?php password_input(); ?>

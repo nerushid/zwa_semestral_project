@@ -17,7 +17,7 @@ if (!isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="header.css">
     <script src="imgupload.js" defer></script>
     <script src="select.js" defer></script>
-    <!-- <script src="formcheck.js" defer></script> -->
+    <script src="formcheck.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,7 +29,6 @@ if (!isset($_SESSION["user_id"])) {
 
             <?php print_newlisting_form(); ?>
 
-            <!-- Submit button -->
             <input type="submit" value="Submit Listing" name="submitlisting" id="submitlistingid">
             <?php
             unset($_SESSION["newlisting_errors"]);

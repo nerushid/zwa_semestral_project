@@ -1,0 +1,170 @@
+/* ========================================
+   BODY STYLES
+   ======================================== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   DIALOG STYLES
+   ======================================== */
+dialog {
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 10px 40px rgba(60, 80, 120, 0.15);
+    min-width: 400px;
+    max-width: 500px;
+    margin-top: 5vh;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+dialog menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin: 0;
+}
+
+dialog h2 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: #2d3e50;
+    font-size: 1.8rem;
+}
+
+dialog p {
+    color: rgb(60, 60, 60);
+    font-size: 1.1rem;
+    margin-bottom: 1.5em;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 0.5em;
+}
+
+/* ========================================
+   LISTING PREVIEW
+   ======================================== */
+.listing-preview {
+    background: #f8f9fa;
+    border: 1px solid #e3e8f0;
+    border-radius: 12px;
+    padding: 1.5em;
+    margin: 1.5em 0;
+    width: 80%;
+    text-align: left;
+}
+
+.listing-preview p {
+    margin: 0.8em 0;
+    font-size: 1rem;
+    color: rgb(60, 60, 60);
+}
+
+.listing-preview strong {
+    color: rgb(40, 40, 40);
+    font-weight: 600;
+}
+
+/* ========================================
+   WARNING TEXT
+   ======================================== */
+.warning {
+    color: crimson;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+/* ========================================
+   DIALOG BUTTONS
+   ======================================== */
+.dialog-buttons {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+dialog form {
+    margin: 0;
+}
+
+dialog button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9em 1.8em;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    font-weight: 600;
+    margin: 0;
+}
+
+.delete-btn {
+    background-color: crimson;
+    color: white;
+    border-color: crimson;
+}
+
+.delete-btn:hover {
+    background-color: rgb(190, 20, 60);
+    border-color: rgb(190, 20, 60);
+}
+
+.cancel-btn {
+    background-color: white;
+    color: rgb(100, 100, 100);
+    border-color: rgb(200, 200, 200);
+}
+
+.cancel-btn:hover {
+    background-color: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 600px) {
+    dialog {
+        min-width: 90vw;
+        max-width: 95vw;
+    }
+
+    dialog menu {
+        padding: 1.5rem 1rem;
+    }
+
+    dialog h2 {
+        font-size: 1.5rem;
+    }
+
+    dialog p {
+        font-size: 1rem;
+    }
+
+    .dialog-buttons {
+        flex-direction: column;
+        gap: 0.8em;
+    }
+
+    dialog button {
+        width: 100%;
+    }
+}

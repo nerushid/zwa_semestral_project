@@ -9,6 +9,13 @@ function is_inputs_empty(string $firstName, string $surname, string $email, stri
     }
 }
 
+function is_name_invalid(string $name): bool {
+    if (!preg_match("/^[\p{L}\s'-]+$/u", $name)) {
+        return true;
+    }
+    return false;
+}
+
 function is_email_invalid(string $email) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return true;

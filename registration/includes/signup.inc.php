@@ -14,19 +14,41 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $errors = [];
 
-        if (is_inputs_empty($firstName, $surname, $email, $pwd, $pwd_confirm)) {
-            $errors['empty_input'] = 'Fill in all fields!';
-        }
-        if (is_email_invalid($email)) {
-            $errors['invalid_email'] = 'Invalid email used!';
-        }
-
-        if (is_email_registred($pdo, $email)) {
-            $errors['email_registred'] = 'Email alredy registred';
+        // First Name validation
+        if (empty($firstName)) {
+            $errors['firstname_error'] = 'First name is required.';
+        } elseif (is_name_invalid($firstName)) {
+            $errors['firstname_error'] = 'First name can only contain letters, spaces, hyphens, and apostrophes.';
         }
 
-        if (is_passwords_mismatch($pwd, $pwd_confirm)) {
-            $errors['password_mismatch'] = 'Passwords do not match';
+        // Surname validation
+        if (empty($surname)) {
+            $errors['surname_error'] = 'Surname is required.';
+        } elseif (is_name_invalid($surname)) {
+            $errors['surname_error'] = 'Surname can only contain letters, spaces, hyphens, and apostrophes.';
+        }
+
+        // Email validation
+        if (empty($email)) {
+            $errors['email_error'] = 'Email is required.';
+        } elseif (is_email_invalid($email)) {
+            $errors['email_error'] = 'Invalid email format.';
+        } elseif (is_email_registred($pdo, $email)) {
+            $errors['email_error'] = 'Email already registered.';
+        }
+
+        // Password validation
+        if (empty($pwd)) {
+            $errors['password_error'] = 'Password is required.';
+        } elseif (strlen($pwd) < 6) {
+            $errors['password_error'] = 'Password must be at least 6 characters long.';
+        }
+
+        // Password confirmation validation
+        if (empty($pwd_confirm)) {
+            $errors['password_confirm_error'] = 'Please confirm your password.';
+        } elseif (is_passwords_mismatch($pwd, $pwd_confirm)) {
+            $errors['password_confirm_error'] = 'Passwords do not match.';
         }
 
         require_once '../../includes/config_session.php';

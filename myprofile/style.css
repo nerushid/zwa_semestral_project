@@ -36,7 +36,7 @@ p {
 }
 
 /* Buttons Edit profile and Change password */
-.edit-profile, .change-password {
+.edit-profile, .change-password, .mylistings {
     display: block;
     text-align: center;
     text-decoration: none;
@@ -52,7 +52,7 @@ p {
     cursor: pointer;
 }
 
-.edit-profile:hover, .change-password:hover {
+.edit-profile:hover, .change-password:hover, .mylistings:hover {
     background-color: rgba(60, 25, 190);
     color: white;
     border-color: rgba(60, 25, 190);

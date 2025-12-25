@@ -1,0 +1,355 @@
+/* ========================================
+   GENERAL BODY STYLES
+   ======================================== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3em 2em;
+}
+
+/* ========================================
+   PAGE TITLE
+   ======================================== */
+h1 {
+    text-align: center;
+    margin-bottom: 2.5em;
+    color: rgb(36, 36, 36);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   NO LISTINGS MESSAGE SECTION
+   ======================================== */
+.no-listings {
+    text-align: center;
+    padding: 4em 2em;
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 2em;
+    border: 1px solid #e3e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.no-listings p {
+    font-size: 1.2rem;
+    color: rgb(100, 100, 100);
+    margin-bottom: 2em;
+}
+
+/* Add New Listing button (when no listings exist) */
+.add-listing-btn {
+    display: inline-block;
+    padding: 0.8em 2em;
+    background: crimson;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-weight: 600;
+    border: 1px solid crimson;
+}
+
+.add-listing-btn:hover {
+    background: rgb(190, 20, 60);
+    border-color: rgb(190, 20, 60);
+}
+
+/* ========================================
+   SORT CONTAINER
+   ======================================== */
+.sort-container {
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.sort-container label {
+    font-weight: 600;
+    color: rgb(60, 60, 60);
+    font-size: 1rem;
+}
+
+.sort-container select {
+    padding: 0.6em 2.5em 0.6em 1em;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: white;
+    color: rgb(60, 60, 60);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+}
+
+.sort-container select:hover {
+    border-color: rgb(170, 170, 170);
+    background-color: rgb(250, 250, 250);
+}
+
+.sort-container select:focus {
+    outline: none;
+    border-color: crimson;
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+}
+
+/* ========================================
+   LISTINGS GRID CONTAINER
+   ======================================== */
+.listings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2em;
+    margin-bottom: 3em;
+}
+
+/* ========================================
+   INDIVIDUAL LISTING CARD
+   ======================================== */
+.listing-card {
+    background: white;
+    border: 1px solid #e3e8f0;
+    border-radius: 16px;
+    padding: 1.5em;
+    transition: all 0.2s ease;
+}
+
+.listing-card:hover {
+    box-shadow: 0 4px 18px rgba(60, 80, 120, 0.12);
+}
+
+/* ========================================
+   LISTING CARD HEADER
+   ======================================== */
+.listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.listing-header h3 {
+    margin: 0;
+    color: rgb(77, 77, 77);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+}
+
+/* Date when listing was created */
+.listing-date {
+    font-size: 0.85rem;
+    color: rgb(150, 150, 150);
+    white-space: nowrap;
+}
+
+/* ========================================
+   LISTING DETAILS SECTION
+   ======================================== */
+.listing-details {
+    margin-bottom: 1.5em;
+}
+
+/* Price display */
+.listing-details .price {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color: rgb(77, 77, 77);
+    margin: 0.8em 0;
+    letter-spacing: 0.5px;
+}
+
+/* Location information */
+.listing-details .location {
+    color: rgb(150, 150, 150);
+    margin: 0.8em 0;
+    font-size: 0.95rem;
+}
+
+/* Layout and area features */
+.listing-features {
+    display: flex;
+    gap: 1.2em;
+    margin: 1em 0;
+    padding-top: 1em;
+    border-top: 1px solid rgb(220, 220, 220);
+}
+
+.listing-features span {
+    color: rgb(150, 150, 150);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   LISTING ACTION BUTTONS
+   ======================================== */
+.listing-actions {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 0.8em;
+    padding-top: 1.2em;
+    border-top: 1px solid rgb(220, 220, 220);
+}
+
+/* Base styles for all action buttons */
+.listing-actions a {
+    padding: 0.7em 1em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* View button */
+.view-btn {
+    background: rgba(60, 25, 190);
+    color: white;
+    border: 1px solid rgba(60, 25, 190);
+}
+
+.view-btn:hover {
+    background: rgba(50, 20, 170);
+    border-color: rgba(50, 20, 170);
+}
+
+/* Edit button */
+.edit-btn {
+    background: white;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(200, 200, 200);
+}
+
+.edit-btn:hover {
+    background: rgb(250, 250, 250);
+    border-color: rgb(150, 150, 150);
+    color: rgb(60, 60, 60);
+}
+
+/* Delete button */
+.delete-btn {
+    background: white;
+    color: crimson;
+    border: 1px solid crimson;
+}
+
+.delete-btn:hover {
+    background: crimson;
+    color: white;
+    border-color: crimson;
+}
+
+/* ========================================
+   BACK TO PROFILE BUTTON
+   ======================================== */
+.back-button {
+    display: block;
+    width: fit-content;
+    margin: 3em auto 0;
+    padding: 0.8em 2em;
+    background: white;
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid rgb(200, 200, 200);
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.back-button:hover {
+    background: rgba(60, 25, 190);
+    color: white;
+    border-color: rgba(60, 25, 190);
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 3em;
+    margin-bottom: 2em;
+}
+
+.pagination a,
+.pagination .current-page {
+    padding: 0.6em 1em;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 8px;
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    transition: 0.15s;
+    font-weight: 500;
+}
+
+.pagination a:hover {
+    background-color: rgba(60, 25, 190, 0.1);
+    border-color: rgba(60, 25, 190);
+    color: rgba(60, 25, 190);
+}
+
+.pagination .current-page {
+    background-color: crimson;
+    color: white;
+    border-color: crimson;
+    cursor: default;
+}
+
+.pagination .dots {
+    padding: 0.6em 0.5em;
+    color: rgb(150, 150, 150);
+    font-weight: bold;
+    cursor: default;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablets and smaller desktops */
+@media (max-width: 1200px) {
+    .listings-container {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    main {
+        padding: 2em 1em;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .listings-container {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    /* Stack action buttons vertically on mobile */
+    .listing-actions {
+        grid-template-columns: 1fr;
+    }
+}
