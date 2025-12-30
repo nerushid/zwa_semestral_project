@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/config_session.php';
+require_once '../includes/csrf.inc.php';
 require_once 'includes/login_view.inc.php';
 ?>
 
@@ -23,6 +24,7 @@ require_once 'includes/login_view.inc.php';
             <h1>Login</h1>
 
             <?php print_inputs(); ?>
+            <?php print_csrf_input(); ?>
 
             <input type="submit" name="submit" id="submitid" value="Login">
 

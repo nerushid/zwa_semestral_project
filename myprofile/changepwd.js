@@ -63,10 +63,18 @@ function validateForm(event) {
 // Real-time validation - remove error styling when user starts typing
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('#current-password, #new-password, #confirm-password');
-    
+    const csrfErrorDiv = document.getElementById('csrf-error');
+
     inputs.forEach(input => {
         input.addEventListener('input', function() {
             this.classList.remove('error-input');
         });
     });
+
+    if (csrfErrorDiv) {
+        document.addEventListener('input', function() {
+            csrfErrorDiv.classList.remove('error-input');
+            csrfErrorDiv.innerHTML = '';
+        });
+    }
 });

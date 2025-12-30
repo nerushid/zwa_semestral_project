@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Description validation
-        const descriptionRegex = /^[\p{L}\p{N}\s.,!?;:()\-–—'\"\/\n\r]+$/u;
+        const descriptionRegex = /^[\p{L}\p{N}\s.,!?;:()\-–—'"\/]+$/u;
         if (descriptionInput.value.trim() === '') {
             showError(descriptionInput, 'Description is required.');
             isValid = false;
@@ -188,3 +188,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+

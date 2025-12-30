@@ -28,6 +28,8 @@ function print_inputs() {
             <div class="error" id="confirm_password_error">' . ($confirmPwdError ? '* ' . $confirmPwdError : '') . '</div>
         </div>';
 
+     echo '<div class="error" id="csrf-error">' . htmlspecialchars($_SESSION["changepwd_errors"]["csrf_error"] ?? '') . '</div>';
+
     unset($_SESSION["changepwd_errors"]);
     unset($_SESSION["changepwd_data"]);
 }

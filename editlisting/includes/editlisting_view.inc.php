@@ -115,6 +115,8 @@ function print_inputs(array $listing): void {
             <div class="error">' . ($descriptionError ? '* ' . $descriptionError : '') . '</div>
           </div>';
 
+    echo '<div class="error" id="csrf-error">' . htmlspecialchars($errors['csrf_error'] ?? '') . '</div>';
+
     unset($_SESSION['editlisting_errors']);
     unset($_SESSION['editlisting_data']);
 }

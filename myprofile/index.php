@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/config_session.php';
+require_once '../includes/csrf.inc.php';
 require_once 'includes/myprofile_view.inc.php';
 
 if (!isset($_SESSION["user_id"])) {
@@ -31,6 +32,7 @@ if (!isset($_SESSION["user_id"])) {
             
             <div class="dialog-buttons">
                 <form action="includes/deleteaccount.inc.php" method="post" id="delete-form">
+                    <?php print_csrf_input(); ?>
                     <button type="submit">Delete</button>
                 </form>
                 <button id="cancel">Cancel</button>

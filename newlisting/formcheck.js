@@ -78,7 +78,7 @@ function validateForm(event) {
     }
 
     // Description validation
-    const descriptionRegex = /^[\p{L}\p{N}\s.,!?;:()\-–—'\"\/\n\r]+$/u;
+    const descriptionRegex = /^[\p{L}\p{N}\s.,!?;:()\-–—'"\/]+$/u;
     if (descriptionInput.value.trim() === '') {
         isValid = false;
         descriptionInput.classList.add('error-input');
@@ -112,7 +112,8 @@ function validateForm(event) {
 // Real-time validation - remove error styling when user starts typing/selecting
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('#praha-selectid, #districtid, #layoutid, #areaid, #priceid, #descriptionid, #file-upload');
-    
+    const csrfErrorDiv = document.getElementById('csrf-errorid');
+
     inputs.forEach(input => {
         if (input.type === 'file') {
             input.addEventListener('change', function() {
@@ -127,4 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    if (csrfErrorDiv) {
+        document.addEventListener('input', function() {
+            csrfErrorDiv.classList.remove('error-input');
+            csrfErrorDiv.innerHTML = '';
+        });
+    }
 });

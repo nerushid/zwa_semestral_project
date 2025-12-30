@@ -127,6 +127,11 @@ function print_image_input(): void {
         <div id="preview-container"></div>';
 }
 
+function print_csrf_error(): void {
+    $error = $_SESSION['newlisting_errors']['csrf_error'] ?? '';
+    echo '<div id="csrf-errorid" class="error">' . ($error ? htmlspecialchars($error) : '') . '</div>';
+}
+
 function print_newlisting_form(): void {
     print_praha_selection();
     print_district_selection();
@@ -135,7 +140,8 @@ function print_newlisting_form(): void {
     print_price_input();
     print_description_input();
     print_image_input();
-    
+    print_csrf_error();
+
     unset($_SESSION['newlisting_errors']);
     unset($_SESSION['newlisting_data']);
 }

@@ -35,6 +35,8 @@ function print_inputs() {
             <div class="error" id="email_error">' . ($emailError ? '* ' . $emailError : '') . '</div>
         </div>';
 
+    echo '<div class="error" id="csrf-error">' . htmlspecialchars($_SESSION["editprofile_errors"]["csrf_error"] ?? '') . '</div>';
+
     unset($_SESSION["editprofile_errors"]);
     unset($_SESSION["editprofile_data"]);
 }

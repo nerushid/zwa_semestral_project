@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 function signup_inputs() {
-    $firstNameValue = $_SESSION["signup_data"]["firstName"] ?? '';
+    $firstNameValue = $_SESSION["signup_data"]["firstname"] ?? '';
     $surnameValue = $_SESSION["signup_data"]["surname"] ?? '';
     $emailValue = $_SESSION["signup_data"]["email"] ?? '';
     
@@ -43,7 +43,9 @@ function password_input() {
     
     echo '<input type="password" name="password-confirm" id="password-confirmid" placeholder="Confirm password" class="' . $passwordConfirmClass . '">
         <div class="error" id="password-confirm-error">' . ($passwordConfirmError ? '* ' . $passwordConfirmError : '') . '</div>';
-    
+
+    echo '<div class="error" id="csrf-error">' . htmlspecialchars($_SESSION["signup_errors"]["csrf_error"] ?? '') . '</div>';
+
     unset($_SESSION['signup_errors']);
     unset($_SESSION['signup_data']);
 }

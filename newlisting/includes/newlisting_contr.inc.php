@@ -31,6 +31,11 @@ function is_layout_invalid(string $layout): bool {
     return !in_array($layout, $valid_layouts);
 }
 
+// Description validation
+function is_description_invalid(string $description): bool {
+    // Allow Unicode letters, numbers, spaces, newlines, and common punctuation
+    return !preg_match("/^[\p{L}\p{N}\s.,!?;:()\-–—'\"\/]+$/u", $description);
+}
 
 // Image upload validations
 function is_file_upload_empty(array $files): bool {

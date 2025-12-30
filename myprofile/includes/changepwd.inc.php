@@ -3,14 +3,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $currentPwd = $_POST["current_password"];
     $newPwd = $_POST["new_password"];
     $newPwdConfirm = $_POST["new_password_confirm"];
+    $csrfToken = $_POST["csrf_token"] ?? '';
 
     try {
         require_once '../../includes/config_session.php';
+        require_once '../../includes/csrf.inc.php';
         require_once '../../includes/dbh.inc.php';
         require_once 'changepwd_model.inc.php';
         require_once 'changepwd_contr.inc.php';
         if (!isset($_SESSION["user_id"])) {
             header("Location: ../../mainpage/index.php");
+            die();
+        }
+
+        // CSRF validation
+        if (!verify_csrf_token($csrfToken)) {
+            $_SESSION["changepwd_errors"] = ['csrf_error' => 'Invalid security token.'];
+            header('Location: ../changepwd.php');
             die();
         }
 

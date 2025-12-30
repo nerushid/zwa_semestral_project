@@ -138,6 +138,13 @@ dialog button {
     border-color: rgba(60, 25, 190);
 }
 
+.error {
+    color: crimson;
+    font-size: 0.9rem;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */

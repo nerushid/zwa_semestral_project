@@ -18,7 +18,9 @@ function print_inputs() {
     echo '<label for="passwordid">Password: <span class="required">*</span></label>
     <input type="password" name="password" id="passwordid" placeholder="Password" class="' . $passwordClass . '">
     <div class="error" id="password-error">' . ($passwordError ? '* ' . $passwordError : ($loginError ? '* ' . $loginError : '')) . '</div>';
-    
+
+    echo '<div class="error" id="csrf-error">' . htmlspecialchars($_SESSION["login_errors"]["csrf_error"] ?? '') . '</div>';
+
     unset($_SESSION['login_errors']);
     unset($_SESSION['login_data']);
 }

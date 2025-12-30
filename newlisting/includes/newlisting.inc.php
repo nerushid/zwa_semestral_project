@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         require_once '../../includes/dbh.inc.php';
         require_once '../../includes/config_session.php';
+        require_once '../../includes/csrf.inc.php';
         require_once 'newlisting_model.inc.php';
         require_once 'newlisting_contr.inc.php';
         require_once 'image_resize.inc.php';
@@ -31,10 +32,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $area = $_POST["area"] ?? '';
         $price = $_POST["price"] ?? '';
         $description = $_POST["description"] ?? '';
+        $csrfToken = $_POST["csrf_token"] ?? '';
 
         $images = $_FILES["listingImages"] ?? null;
 
+        // CSRF validation
+        if (!verify_csrf_token($csrfToken)) {
+            $_SESSION["newlisting_errors"] = ['csrf_error' => 'Invalid security token.'];
+            header('Location: ../index.php');
+            die();
+        }
+
         $errors = [];
+        
         if (empty($praha)) {
             $errors["praha_error"] = "Please select a Praha.";
         } elseif (is_praha_invalid($praha)) {

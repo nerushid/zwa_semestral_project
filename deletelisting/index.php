@@ -1,7 +1,9 @@
 <?php
 require_once '../includes/config_session.php';
 require_once '../includes/dbh.inc.php';
+require_once '../includes/csrf.inc.php';
 require_once '../editlisting/includes/editlisting_model.inc.php';
+require_once 'includes/deletelisting_view.inc.php';
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../mainpage/index.php");
@@ -46,10 +48,12 @@ if (!$listing || $listing['user_id'] !== $_SESSION["user_id"]) {
             <div class="dialog-buttons">
                 <form action="includes/deletelisting.inc.php" method="post" id="delete-form">
                     <input type="hidden" name="listing_id" value="<?php echo $listingId; ?>">
+                    <?php print_csrf_input(); ?>
                     <button type="submit" class="delete-btn">Delete Listing</button>
                 </form>
                 <button id="cancel-btn" class="cancel-btn">Cancel</button>
             </div>
+            <?php print_csrf_error(); ?>
         </menu>
     </dialog>
 </body>

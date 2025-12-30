@@ -1,6 +1,8 @@
 <?php
 require_once '../includes/config_session.php';
+require_once '../includes/csrf.inc.php';
 require_once 'includes/newlisting_view.inc.php';
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../mainpage/index.php");
     die();
@@ -28,6 +30,7 @@ if (!isset($_SESSION["user_id"])) {
             <h1 id="topicid">--- New listing ---</h1>
 
             <?php print_newlisting_form(); ?>
+            <?php print_csrf_input(); ?>
 
             <input type="submit" value="Submit Listing" name="submitlisting" id="submitlistingid">
             <?php

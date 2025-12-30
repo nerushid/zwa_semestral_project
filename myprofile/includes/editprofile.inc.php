@@ -5,15 +5,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $firstname = trim($_POST["firstname"]);
     $surname = trim($_POST["surname"]);
     $email = trim($_POST["email"]);
+    $csrfToken = $_POST["csrf_token"] ?? '';
 
 
     try {
         require_once '../../includes/config_session.php';
+        require_once '../../includes/csrf.inc.php';
         require_once '../../includes/dbh.inc.php'; 
         require_once 'editprofile_model.inc.php';
         require_once 'editprofile_contr.inc.php';
         if (!isset($_SESSION["user_id"])) {
             header("Location: ../../mainpage/index.php");
+            die();
+        }
+
+        // CSRF validation
+        if (!verify_csrf_token($csrfToken)) {
+            $_SESSION["editprofile_errors"] = ['csrf_error' => 'Invalid security token.'];
+            header('Location: ../editprofile.php');
             die();
         }
 

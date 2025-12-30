@@ -44,7 +44,8 @@ function checkingInputs(event) {
 document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.getElementById('emailid')
     const passwordInput = document.getElementById('passwordid')
-    
+    const csrfErrorDiv = document.getElementById('csrf-error')
+
     if (emailInput) {
         emailInput.addEventListener('input', function() {
             this.classList.remove('error-input')
@@ -54,6 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (passwordInput) {
         passwordInput.addEventListener('input', function() {
             this.classList.remove('error-input')
+        })
+    }
+
+    if (csrfErrorDiv) {
+        document.addEventListener('input', function() {
+            csrfErrorDiv.classList.remove('error-input')
+            csrfErrorDiv.innerHTML = ''
+        })
+        csrfErrorDiv.addEventListener('click', function() {
+            csrfErrorDiv.classList.remove('error-input')
+            csrfErrorDiv.innerHTML = ''
         })
     }
 })

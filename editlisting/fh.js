@@ -62,12 +62,21 @@ form.addEventListener('submit', function(e) {
     }
 });
 
-// Remove error styling on input
-[prahaSelect, districtSelect, layoutSelect, areaInput, priceInput, descriptionInput].forEach(input => {
-    input.addEventListener('input', function() {
-        this.classList.remove('error-input');
+// Real-time validation - remove error styling when user starts typing/selecting
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('#praha, #district, #layout, #area, #price, #description');
+    const csrfErrorDiv = document.getElementById('csrf-error');
+
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            this.classList.remove('error-input');
+        });
     });
-    input.addEventListener('change', function() {
-        this.classList.remove('error-input');
-    });
+
+    if (csrfErrorDiv) {
+        document.addEventListener('input', function() {
+            csrfErrorDiv.classList.remove('error-input');
+            csrfErrorDiv.innerHTML = '';
+        });
+    }
 });

@@ -2,11 +2,29 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"]);
     $pwd = $_POST["password"];
+    $csrfToken = $_POST["csrf_token"] ?? '';
 
     try {
+        require_once '../../includes/config_session.php';
+        require_once '../../includes/csrf.inc.php';
         require_once '../../includes/dbh.inc.php'; 
         require_once 'login_model.inc.php';
         require_once 'login_contr.inc.php';
+
+        // CSRF validation
+        if (!verify_csrf_token($csrfToken)) {
+            $_SESSION["login_errors"] = [
+                'csrf_error' => 'Invalid security token. Please try again.'
+            ];
+
+            $login_data = [
+                'email' => $email
+            ];
+            $_SESSION["login_data"] = $login_data;
+
+            header("Location: ../index.php");
+            die();
+        }
 
         $errors = [];
 
@@ -33,8 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
 
-        require_once '../../includes/config_session.php';
-
         if ($errors) {
             $_SESSION["login_errors"] = $errors;
             
@@ -59,6 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["user_email"] = htmlspecialchars($result["email"]);
 
         $_SESSION["last_regeneration"] = time();
+
+        regenerate_csrf_token();
 
         unset($_SESSION["login_errors"]);
         unset($_SESSION["login_data"]);

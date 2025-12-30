@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/config_session.php';
+require_once '../includes/csrf.inc.php';
 require_once 'includes/editprofile_view.inc.php';
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../mainpage/index.php");
@@ -27,6 +28,7 @@ if (!isset($_SESSION["user_id"])) {
 
         <form action="includes/editprofile.inc.php" method="post" id="form">
             <?php print_inputs(); ?>
+            <?php print_csrf_input(); ?>
 
             <div class="button-group">
                 <button type="submit" class="save-button">Save Changes</button>

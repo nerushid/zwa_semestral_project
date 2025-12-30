@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/config_session.php';
+require_once '../includes/csrf.inc.php';
 require_once 'includes/signup_view.inc.php';
 
 $passwordError = $_SESSION['signup_errors']['password_error'] ?? '';
@@ -32,6 +33,7 @@ $passwordClass = $passwordError ? ' error-input' : '';
 
             <label for="password-confirmid">Password confirm: <span class="required">*</span></label>
             <?php password_input(); ?>
+            <?php print_csrf_input(); ?>
 
             <input type="submit" name="submit" id="submitid" value="Sign Up">
             <a href="../login/index.php" id="login-link">Login</a>

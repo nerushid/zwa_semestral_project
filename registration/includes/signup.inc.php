@@ -6,11 +6,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"]);
     $pwd = $_POST["password"];
     $pwd_confirm = $_POST["password-confirm"];
+    $csrfToken = $_POST["csrf_token"] ?? '';
 
     try {
         require_once '../../includes/dbh.inc.php'; 
+        require_once '../../includes/config_session.php';
+        require_once '../../includes/csrf.inc.php';
         require_once 'signup_model.inc.php';
         require_once 'signup_contr.inc.php';
+
+        // CSRF validation
+        if (!verify_csrf_token($csrfToken)) {
+            $_SESSION["signup_errors"] = [
+                'csrf_error' => 'Invalid security token. Please try again.'
+            ];
+
+            // Preserve user input on CSRF failure
+            $signup_data = [
+                'firstname' => $firstName,
+                'surname' => $surname,
+                'email' => $email
+            ];
+            $_SESSION['signup_data'] = $signup_data;
+
+            header("Location: ../index.php");
+            die();
+        }
 
         $errors = [];
 
@@ -50,14 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } elseif (is_passwords_mismatch($pwd, $pwd_confirm)) {
             $errors['password_confirm_error'] = 'Passwords do not match.';
         }
-
-        require_once '../../includes/config_session.php';
         
         if ($errors) {
             $_SESSION["signup_errors"] = $errors;
 
             $signup_data = [
-                'firstName' => $firstName,
+                'firstname' => $firstName,
                 'surname' => $surname,
                 'email' => $email
             ];

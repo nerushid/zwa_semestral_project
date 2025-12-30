@@ -1,6 +1,7 @@
 <?php
 require_once '../includes/config_session.php';
 require_once '../includes/dbh.inc.php';
+require_once '../includes/csrf.inc.php';
 require_once 'includes/editlisting_view.inc.php';
 require_once 'includes/editlisting_model.inc.php';
 
@@ -40,6 +41,7 @@ if (!$listing || $listing['user_id'] !== $_SESSION["user_id"]) {
         <form action="includes/editlisting.inc.php" method="post" id="form">
             <input type="hidden" name="listing_id" value="<?php echo $listingId; ?>">
             <?php print_inputs($listing); ?>
+            <?php print_csrf_input(); ?>
 
             <div class="button-group">
                 <button type="submit" class="save-button">Save Changes</button>

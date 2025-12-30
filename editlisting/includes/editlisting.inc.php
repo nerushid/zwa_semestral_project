@@ -8,10 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $area = isset($_POST["area"]) ? trim($_POST["area"]) : '';
     $price = isset($_POST["price"]) ? trim($_POST["price"]) : '';
     $description = isset($_POST["description"]) ? trim($_POST["description"]) : '';
+    $csrfToken = $_POST["csrf_token"] ?? '';
 
     try {
         require_once '../../includes/config_session.php';
         require_once '../../includes/dbh.inc.php';
+        require_once '../../includes/csrf.inc.php';
         require_once 'editlisting_model.inc.php';
         require_once 'editlisting_contr.inc.php';
 
@@ -19,13 +21,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: ../../mainpage/index.php");
             die();
         }
-
+        // CSRF validation
+        if (!verify_csrf_token($csrfToken)) {
+            $_SESSION["editlisting_errors"] = ['csrf_error' => 'Invalid security token.'];
+            header('Location: ../index.php?id=' . $listingId);
+            die();
+        }
+        
         // Verify ownership
         $listing = get_listing_by_id($pdo, $listingId);
         if (!$listing || $listing['user_id'] !== $_SESSION["user_id"]) {
             header("Location: ../../myprofile/mylistings.php");
             die();
         }
+
+        
 
         $errors = [];
 
@@ -69,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["description_error"] = "Description is required.";
         } elseif (strlen($description) < 20) {
             $errors["description_error"] = "Description must be at least 20 characters.";
-        } elseif (!preg_match("/^[\p{L}\p{N}\s.,!?;:()\-–—'\"\/\n\r]+$/u", $description)) {
+        } elseif (!preg_match("/^[\p{L}\p{N}\s.,!?;:()\-–—'\"\/]+$/u", $description)) {
             $errors["description_error"] = "Description contains invalid characters. Only letters, numbers, spaces, and basic punctuation are allowed.";
         }
 
