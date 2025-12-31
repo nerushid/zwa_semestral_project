@@ -1,7 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initImageSliders() {
     const listings = document.querySelectorAll('.listing-item');
     
     listings.forEach(listing => {
+        if (listing.classList.contains('slider-initialized')) return;
+        listing.classList.add('slider-initialized');
+
         const listingId = listing.dataset.listingId;
         const images = listing.querySelectorAll('.slider-image');
         const dots = listing.querySelectorAll('.dot');
@@ -46,4 +49,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-});
+}

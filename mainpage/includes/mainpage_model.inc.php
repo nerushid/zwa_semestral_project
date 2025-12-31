@@ -5,37 +5,37 @@ function setConditionForQuerry(array $filters): array {
     $conditions = [];
     $params = [];
 
-    if (isset($filters['praha'])) {
+    if (!empty($filters['praha'])) {
         $conditions[] = 'praha = :praha';
         $params[':praha'] = $filters['praha'];
     }
 
-    if (isset($filters['district'])) {
+    if (!empty($filters['district'])) {
         $conditions[] = 'district = :district';
         $params[':district'] = $filters['district'];
     }
 
-    if (isset($filters['price_from'])) {
+    if (!empty($filters['price_from'])) {
         $conditions[] = 'price >= :price_from';
         $params[':price_from'] = $filters['price_from'];
     }
 
-    if (isset($filters['price_to'])) {
+    if (!empty($filters['price_to'])) {
         $conditions[] = 'price <= :price_to';
         $params[':price_to'] = $filters['price_to'];
     }
 
-    if (isset($filters['area_from'])) {
+    if (!empty($filters['area_from'])) {
         $conditions[] = 'area >= :area_from';
         $params[':area_from'] = $filters['area_from'];
     }
 
-    if (isset($filters['area_to'])) {
+    if (!empty($filters['area_to'])) {
         $conditions[] = 'area <= :area_to';
         $params[':area_to'] = $filters['area_to'];
     }
 
-    if (isset($filters['layouts'])) {
+    if (!empty($filters['layouts'])) {
         $layoutPlaceholders = [];
         foreach ($filters['layouts'] as $key => $layout) {
             $ph = ":layout_" . $key;

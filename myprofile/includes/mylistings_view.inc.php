@@ -13,7 +13,7 @@ function print_sort_dropdown(string $currentSort): void {
           </div>';
 }
 
-function print_listings(array $listings) {
+function print_listings(array $listings): void {
     if (empty($listings)) {
         echo '<div class="no-listings">
                 <p>You don\'t have any listings yet.</p>
