@@ -1,8 +1,29 @@
 const form = document.getElementById('formid');
+const submitButton = document.getElementById('submit-button');
+let isSubmitting = false;
 
 if (form) {
-    form.addEventListener('submit', validateForm);
+    form.addEventListener('submit', function(e) {
+        // Prevent double submission
+        if (isSubmitting) {
+            e.preventDefault();
+            return false;
+        }
+
+        validateForm(e);
+    });
 }
+
+// Reset button state if user navigates back
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        isSubmitting = false;
+        submitButton.disabled = false;
+        submitButton.textContent = 'Create Listing';
+        submitButton.style.opacity = '1';
+        submitButton.style.cursor = 'pointer';
+    }
+});
 
 function validateForm(event) {
     const prahaSelect = document.getElementById('praha-selectid');
@@ -104,7 +125,14 @@ function validateForm(event) {
         document.getElementById('file-upload-errorid').innerHTML = '';
     }
 
-    if (!isValid) {
+    // If validation passes, disable submit button and mark as submitting
+    if (isValid) {
+        isSubmitting = true;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Creating Listing...';
+        submitButton.style.opacity = '0.6';
+        submitButton.style.cursor = 'not-allowed';
+    } else {
         event.preventDefault();
     }
 }

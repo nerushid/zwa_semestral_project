@@ -218,6 +218,131 @@ section.listings article:hover {
 }
 
 /* ========================================
+   RESPONSIVE DESIGN - MOBILE
+   ======================================== */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 2em;
+        margin-top: 1em;
+    }
+
+    section.listings {
+        grid-template-columns: 1fr 1fr;
+        padding-right: 0;
+        padding: 0 1em;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 2em;
+    }
+
+    main {
+        display: block;
+        margin-top: 0;
+    }
+
+    section.listings {
+        grid-template-columns: 1fr;
+        row-gap: 2em;
+        padding: 1em;
+    }
+
+    section.listings article {
+        padding: 1em;
+    }
+
+    .slider-images {
+        height: 220px;
+    }
+
+    .for-rent {
+        font-size: 0.95rem;
+    }
+
+    .flat-size,
+    .flat-location {
+        font-size: 0.9rem;
+    }
+
+    #strong {
+        font-size: 18pt;
+    }
+
+    .flat-cost {
+        font-size: 0.9rem;
+    }
+
+    /* Pagination adjustments */
+    .pagination {
+        flex-wrap: wrap;
+        gap: 0.4em;
+        margin-top: 2em;
+    }
+
+    .pagination a,
+    .pagination .current-page {
+        padding: 0.5em 0.8em;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    section.listings article {
+        padding: 0.8em;
+    }
+
+    .slider-images {
+        height: 180px;
+    }
+
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .prev-btn {
+        left: 5px;
+    }
+
+    .next-btn {
+        right: 5px;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .dot.active {
+        width: 8px;
+        height: 8px;
+    }
+
+    .for-rent {
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+
+    #strong {
+        font-size: 16pt;
+    }
+
+    .pagination a,
+    .pagination .current-page {
+        padding: 0.4em 0.6em;
+        font-size: 0.85rem;
+    }
+}
+
+/* ========================================
    PRINT STYLES
    ======================================== */
 @media print {

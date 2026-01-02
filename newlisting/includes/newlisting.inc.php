@@ -130,26 +130,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $imagePaths = [];
         $imagesCount = count($images['name']);
+        
         for ($i = 0; $i < $imagesCount; $i++) {
             if ($images['error'][$i] === UPLOAD_ERR_OK) {
                 $extension = pathinfo($images['name'][$i], PATHINFO_EXTENSION);
-
                 $uniqueName = "listing_" . $listingId . "_" . uniqid();
-
                 $newFileName = $uniqueName . "." . $extension;
-                $destination = "../../uploads/" . $newFileName;
-
-                $fileNameThumb = "thumb_" . $uniqueName . "." . $extension;
-                $destinationThumb = "../../uploads/" . $fileNameThumb;
-
-                $fileNameMedium = "medium_" . $uniqueName . "." . $extension;
-                $destinationMedium = "../../uploads/" . $fileNameMedium;
                 
+                // Temporary path for original upload
+                $tempPath = "../../uploads/temp_" . $newFileName;
+                
+                // Final paths for thumb and medium
+                $thumbFileName = "thumb_" . $newFileName;
+                $thumbPath = "../../uploads/" . $thumbFileName;
+                
+                $mediumFileName = "medium_" . $newFileName;
+                $mediumPath = "../../uploads/" . $mediumFileName;
 
-                if (move_uploaded_file($images['tmp_name'][$i], $destination)) {
-                    resize_image($destination, $destinationThumb, 280);
-                    resize_image($destination, $destinationMedium, 600);
+                // Move uploaded file to temporary location
+                if (move_uploaded_file($images['tmp_name'][$i], $tempPath)) {
+                    // Create thumb (420px height)
+                    resize_image($tempPath, $thumbPath, 420);
+                    
+                    // Create medium (1080px height)
+                    resize_image($tempPath, $mediumPath, 1080);
+                    
+                    // Delete temporary original file
+                    if (file_exists($tempPath)) {
+                        unlink($tempPath);
+                    }
 
+                    // Store only the base filename (without thumb_ or medium_ prefix)
                     $imagePaths[] = $newFileName;
                 }
             }

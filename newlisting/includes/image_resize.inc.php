@@ -1,56 +1,12 @@
 <?php
 
-// function resize_image($sourcePath, $destPath, $targetWidth, $targetHeight) {
-//     list($originalWidth, $originalHeight, $imageType) = getimagesize($sourcePath);
-//     switch ($imageType) {
-//         case IMAGETYPE_JPEG:
-//             $sourceImage = imagecreatefromjpeg($sourcePath);
-//             break;
-//         case IMAGETYPE_PNG:
-//             $sourceImage = imagecreatefrompng($sourcePath);
-//             imagesavealpha($sourceImage, true);
-//             break;
-//         case IMAGETYPE_WEBP:
-//             $sourceImage = imagecreatefromwebp($sourcePath);
-//             break;
-//         default:
-//             throw new Exception("Unsupported image type; only JPEG, PNG and WEBP are allowed.");
-//     }
-
-//     $ratio = $originalWidth / $originalHeight;
-
-//     if ($targetWidth / $targetHeight > $ratio) {
-//         $newWidth = (int)($targetHeight * $ratio);
-//         $newHeight = $targetHeight;
-//     } else {
-//         $newWidth = $targetWidth;
-//         $newHeight = (int)($targetWidth / $ratio);
-//     }
-
-//     $destImage = imagecreatetruecolor($newWidth, $newHeight);
-
-//     if ($imageType == IMAGETYPE_PNG) {
-//         imagealphablending($destImage, false);
-//         imagesavealpha($destImage, true);
-//     }
-
-//     imagecopyresampled($destImage, $sourceImage, 0, 0, 0, 0, $newWidth, $newHeight, $originalWidth, $originalHeight);
-
-//     switch ($imageType) {
-//         case IMAGETYPE_JPEG:
-//             imagejpeg($destImage, $destPath);
-//             break;
-//         case IMAGETYPE_PNG:
-//             imagepng($destImage, $destPath);
-//             break;
-//         case IMAGETYPE_WEBP:
-//             imagewebp($destImage, $destPath);
-//             break;
-//     }
-
-//     imagedestroy($sourceImage);
-//     imagedestroy($destImage);
-// }
+/**
+ * Resize image to specified height while maintaining aspect ratio
+ * @param string $sourcePath Path to source image
+ * @param string $destPath Path to save resized image
+ * @param int $targetHeight Target height in pixels
+ * @return bool Success status
+ */
 function resize_image($sourcePath, $destPath, $targetHeight) {
     list($originalWidth, $originalHeight, $imageType) = getimagesize($sourcePath);
 
@@ -69,17 +25,20 @@ function resize_image($sourcePath, $destPath, $targetHeight) {
             return false; 
     }
 
+    // Calculate new dimensions maintaining aspect ratio
     $ratio = $originalWidth / $originalHeight;
     $newHeight = $targetHeight;
     $newWidth = (int)($targetHeight * $ratio);
 
     $destImage = imagecreatetruecolor($newWidth, $newHeight);
 
+    // Handle PNG transparency
     if ($imageType == IMAGETYPE_PNG) {
         imagealphablending($destImage, false);
         imagesavealpha($destImage, true);
     }
 
+    // Resample image
     imagecopyresampled(
         $destImage, $sourceImage, 
         0, 0, 
@@ -88,6 +47,7 @@ function resize_image($sourcePath, $destPath, $targetHeight) {
         $originalWidth, $originalHeight
     );
 
+    // Save resized image
     switch ($imageType) {
         case IMAGETYPE_JPEG:
             imagejpeg($destImage, $destPath, 90);

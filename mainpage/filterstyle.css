@@ -212,3 +212,124 @@ section form input[type="number"]:hover {
     border-color: crimson;
     box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
 }
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE
+   ======================================== */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+    #filters-section {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    #listings-and-pagination .sort-container {
+        padding: 0 1em;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+    #filters-section {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1.5em;
+        border-radius: 0;
+    }
+
+    section form {
+        padding: 1em;
+    }
+
+    section form h2 {
+        font-size: 1.3rem;
+    }
+
+    section form label {
+        font-size: 0.9em;
+        margin-top: 1em;
+    }
+
+    section form select,
+    section form input[type="number"] {
+        font-size: 0.9em;
+    }
+
+    .range-inputs {
+        flex-direction: column;
+        gap: 0.8em;
+    }
+
+    #layout-checkboxes {
+        grid-template-columns: 1fr;
+        gap: 0.6em;
+        padding: 1em;
+    }
+
+    #search-button {
+        font-size: 14pt;
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+    }
+
+    #reset-filters {
+        font-size: 12pt;
+        padding: 0.6em 0.8em;
+    }
+
+    /* Sort container */
+    #listings-and-pagination .sort-container {
+        padding: 0 1em;
+        margin-bottom: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em;
+    }
+
+    #listings-and-pagination .sort-container label {
+        font-size: 0.9rem;
+    }
+
+    #listings-and-pagination .sort-container select {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    section form {
+        padding: 0.8em;
+    }
+
+    section form h2 {
+        font-size: 1.2rem;
+    }
+
+    section form label {
+        font-size: 0.85em;
+    }
+
+    section form select,
+    section form input[type="number"] {
+        padding: 0.6em;
+        font-size: 0.85em;
+    }
+
+    #layout-checkboxes {
+        padding: 0.8em;
+    }
+
+    #layout-checkboxes label {
+        font-size: 0.85em;
+    }
+
+    #search-button {
+        font-size: 13pt;
+    }
+
+    #reset-filters {
+        font-size: 11pt;
+    }
+}

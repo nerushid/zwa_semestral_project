@@ -156,22 +156,16 @@ function delete_listing_images_files(object $pdo, int $listingId): void {
     foreach ($images as $image) {
         $imagePath = $image['image_path'];
         
-        // Delete thumbnail
+        // Delete thumbnail (420px)
         $thumbPath = __DIR__ . '/../../uploads/thumb_' . $imagePath;
         if (file_exists($thumbPath)) {
             unlink($thumbPath);
         }
         
-        // Delete medium
+        // Delete medium (1080px)
         $mediumPath = __DIR__ . '/../../uploads/medium_' . $imagePath;
         if (file_exists($mediumPath)) {
             unlink($mediumPath);
-        }
-        
-        // Delete original
-        $originalPath = __DIR__ . '/../../uploads/' . $imagePath;
-        if (file_exists($originalPath)) {
-            unlink($originalPath);
         }
     }
 }
