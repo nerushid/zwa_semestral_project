@@ -50,3 +50,5 @@ function initImageSliders() {
         });
     });
 }
+
+document.addEventListener('DOMContentLoaded', initImageSliders);

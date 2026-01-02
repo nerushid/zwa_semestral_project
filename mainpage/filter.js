@@ -26,6 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 resultsContainer.style.opacity = "1";
                 // After inserting new HTML, sync UI and re-initialize dynamic parts
 
+                // 0) Re-initialize image sliders for new listings
+                if (typeof initImageSliders === 'function') {
+                    initImageSliders(); 
+                }
+
                 // 1) Sync filter form fields with the current URL params so the visible form
                 //    reflects the filters that were applied on this load.
                 if (filterForm) {
@@ -65,11 +70,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 //    so dependent UI (districts) updates to match current selection.
                 const prahaSelect = document.getElementById("praha-selectid");
                 if (prahaSelect) {
+                    // Save the district value from params because the 'change' event might clear the select
+                    const districtValue = urlParams.get('district');
+                    
+                    // Trigger change to unlock/update the district list
                     prahaSelect.dispatchEvent(new Event('change'));
+
+                    // If a district was selected, restore it immediately
+                    if (districtValue) {
+                        const districtSelect = document.getElementById("districtid");
+                        if (districtSelect) {
+                            districtSelect.value = districtValue;
+                        }
+                    }
                 }
 
-                // 4) Smoothly scroll the results container into view so the user sees updated listings
-                resultsContainer.scrollIntoView({ behavior: "smooth", block: "start" });
                 const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
                 window.history.pushState({path: newUrl}, '', newUrl);
             })
