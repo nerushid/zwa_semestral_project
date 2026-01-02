@@ -2,10 +2,14 @@
 declare(strict_types=1);
 
 /**
- * Validates password against security requirements
+ * Validates password against security requirements:
+ * - Minimum 8 characters
+ * - Maximum 72 characters
+ * - At least one letter
+ * - At least one number
  * 
  * @param string $pwd The password to validate
- * @return string|null Returns error message if invalid, null if valid
+ * @return string|null Error message if invalid, null if valid
  */
 function is_password_invalid(string $pwd): ?string {
     $errors = [];

@@ -1,13 +1,7 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
-function print_header(PDO $pdo) {
-    /*
-        <a href="../newlisting/newlisting.html" id="new-listing">Add New Listing</a>
-        <a href="../login/index.php">Login</a>
-        <a href="../registration/index.php">Sign Up</a>
-    */
-
+function print_header(PDO $pdo): void {
     if (isset($_SESSION["user_id"])) {
         require_once __DIR__ . '/../../includes/user_model.inc.php';
         
@@ -20,10 +14,10 @@ function print_header(PDO $pdo) {
         }
         
         echo '<a href="../myprofile/index.php">My Profile</a>
-            <a href="#" id="logout">Log Out</a>';
+              <a href="#" id="logout">Log Out</a>';
     } else {
         echo '<a href="../login/index.php">Login</a>
-            <a href="../registration/index.php">Sign Up</a>';
+              <a href="../registration/index.php">Sign Up</a>';
     }
 }
 

@@ -3,13 +3,8 @@ declare(strict_types = 1);
 
 function print_header(PDO $pdo) {
     if (isset($_SESSION["user_id"])) {
-        // Check if user is admin
-        $query = "SELECT role FROM users WHERE id = :userId";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':userId', $_SESSION["user_id"], PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $isAdmin = $result && $result['role'] === 'admin';
+        require_once __DIR__ . '/../../includes/user_model.inc.php';
+        $isAdmin = is_user_admin($pdo, $_SESSION["user_id"]);
         
         echo '
             <a href="../newlisting/index.php" id="new-listing2">+ Add New Listing</a>';
@@ -29,30 +24,28 @@ function print_header(PDO $pdo) {
 }
 
 function print_slider(array $images): void {
-    echo '<div class="single-listing-slider">';
-        echo '<div class="slider-wrapper">';
+    $totalImages = empty($images) ? 1 : count($images);
+    
+    echo '<div class="single-listing-slider">
+            <div class="slider-wrapper">';
         
-        if (empty($images)) {
-            echo '<img src="../mainpage/appartaments.jpg" class="slide-image" alt="Default Image">';
-            $totalImages = 1;
-        } else {
-            $totalImages = count($images);
-            foreach ($images as $img) {
-                $imageName = $img['image_path']; 
-                
-                if (is_string($imageName)) {
-                    $imgPath = "../uploads/" . 'medium_' . htmlspecialchars($imageName);
-                    echo '<img src="' . $imgPath . '" class="slide-image" alt="Listing Image">';
-                }
+    if (empty($images)) {
+        echo '<img src="../uploads/placeholder.jpg" class="slide-image" alt="Default Image">';
+    } else {
+        foreach ($images as $img) {
+            if (is_string($img['image_path'])) {
+                echo '<img src="../uploads/medium_' . htmlspecialchars($img['image_path']) . '" class="slide-image" alt="Listing Image">';
             }
         }
-        echo '</div>';
+    }
+    
+    echo '  </div>
+            <div class="slide-counter">1 / ' . $totalImages . '</div>';
 
-        echo '<div class="slide-counter">1 / ' . $totalImages . '</div>';
-
-        if (count($images) > 1) {
-            echo '<button class="slider-btn prev-btn">&#10094;</button>';
-            echo '<button class="slider-btn next-btn">&#10095;</button>';
-        }
+    if ($totalImages > 1) {
+        echo '<button class="slider-btn prev-btn">&#10094;</button>
+              <button class="slider-btn next-btn">&#10095;</button>';
+    }
+    
     echo '</div>';
 }
