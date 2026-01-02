@@ -2,6 +2,9 @@
 declare(strict_types=1);
 
 function print_sort_dropdown(string $currentSort): void {
+    // Escape the sort value for safety
+    $currentSort = htmlspecialchars($currentSort, ENT_QUOTES, 'UTF-8');
+    
     echo '<div class="sort-container">
             <label for="sort-select">Sort by:</label>
             <select id="sort-select">

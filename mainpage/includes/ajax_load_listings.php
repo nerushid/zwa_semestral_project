@@ -11,6 +11,8 @@ $sort = $_GET['sort'] ?? 'newest';
 if (!isValidSortByFilter($sort)) {
     $sort = 'newest';
 }
+// Escape for HTML output
+$sortEscaped = htmlspecialchars($sort, ENT_QUOTES, 'UTF-8');
 
 $conditionsAndParams = setConditionForQuerry($_GET);
 

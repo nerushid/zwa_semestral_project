@@ -77,7 +77,7 @@ if ($activeTab === 'users') {
                 <div class="controls">
                     <form method="get" class="search-form">
                         <input type="hidden" name="tab" value="users">
-                        <input type="number" name="search_id" placeholder="Search by User ID" value="<?php echo $searchId > 0 ? $searchId : ''; ?>">
+                        <input type="number" name="search_id" placeholder="Search by User ID" value="<?php echo $searchId > 0 ? htmlspecialchars((string)$searchId, ENT_QUOTES, 'UTF-8') : ''; ?>">
                         <button type="submit">Search</button>
                         <?php if ($searchId > 0): ?>
                             <a href="?tab=users" class="reset-btn">Clear</a>
@@ -109,7 +109,7 @@ if ($activeTab === 'users') {
                 <div class="controls">
                     <form method="get" class="search-form">
                         <input type="hidden" name="tab" value="listings">
-                        <input type="number" name="search_id" placeholder="Search by Listing ID" value="<?php echo $searchId > 0 ? $searchId : ''; ?>">
+                        <input type="number" name="search_id" placeholder="Search by Listing ID" value="<?php echo $searchId > 0 ? htmlspecialchars((string)$searchId, ENT_QUOTES, 'UTF-8') : ''; ?>">
                         <button type="submit">Search</button>
                         <?php if ($searchId > 0): ?>
                             <a href="?tab=listings" class="reset-btn">Clear</a>
