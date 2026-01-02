@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once '../../includes/config_session.php';
         require_once '../../includes/csrf.inc.php';
         require_once '../../includes/dbh.inc.php';
+        require_once '../../includes/pwd_validation.inc.php';
         require_once 'changepwd_model.inc.php';
         require_once 'changepwd_contr.inc.php';
         if (!isset($_SESSION["user_id"])) {
@@ -26,21 +27,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors = [];
         if (empty($currentPwd)) {
             $errors['current_password_error'] = 'Current password is required!';
-        } elseif (strlen($currentPwd) < 6) {
-            $errors['current_password_error'] = 'Current password must be at least 6 characters long!';
         } elseif (is_current_password_wrong($currentPwd, get_pwd($pdo, $_SESSION["user_id"]))) {
             $errors['current_password_error'] = 'Current password is incorrect!';
         }
 
         if (empty($newPwd)) {
             $errors['new_password_error'] = 'New password is required!';
-        } elseif (strlen($newPwd) < 6) {
-            $errors['new_password_error'] = 'New password must be at least 6 characters long!';
+        } else {
+            $passwordError = is_password_invalid($newPwd);
+            if ($passwordError !== null) {
+                $errors['new_password_error'] = $passwordError;
+            }
         }
+        
         if (empty($newPwdConfirm)) {
             $errors['new_password_confirm_error'] = 'Please confirm your new password!';
-        } elseif (strlen($newPwdConfirm) < 6) {
-            $errors['new_password_confirm_error'] = 'New password confirmation must be at least 6 characters long!';
         } elseif (is_passwords_mismatch($newPwd, $newPwdConfirm)) {
             $errors['new_password_confirm_error'] = 'New passwords do not match!';
         }

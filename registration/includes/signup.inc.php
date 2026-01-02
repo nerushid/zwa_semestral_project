@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once '../../includes/dbh.inc.php'; 
         require_once '../../includes/config_session.php';
         require_once '../../includes/csrf.inc.php';
+        require_once '../../includes/pwd_validation.inc.php';
         require_once 'signup_model.inc.php';
         require_once 'signup_contr.inc.php';
 
@@ -61,8 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Password validation
         if (empty($pwd)) {
             $errors['password_error'] = 'Password is required.';
-        } elseif (strlen($pwd) < 6) {
-            $errors['password_error'] = 'Password must be at least 6 characters long.';
+        } else {
+            $passwordError = is_password_invalid($pwd);
+            if ($passwordError !== null) {
+                $errors['password_error'] = $passwordError;
+            }
         }
 
         // Password confirmation validation

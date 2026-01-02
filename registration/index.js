@@ -19,7 +19,7 @@ function chekingInputs(event) {
     
     let isFormValid = true
 
-    // Clear all error classes first
+    // Clear all error classes
     firstNameInput.classList.remove('error-input')
     lastNameInput.classList.remove('error-input')
     emailInput.classList.remove('error-input')
@@ -71,12 +71,32 @@ function chekingInputs(event) {
         isFormValid = false
         passwordInput.classList.add('error-input')
         document.getElementById("password-error").innerHTML = "* Password cannot be blank"
-    } else if (passwordValue.length < 6) {
-        isFormValid = false
-        passwordInput.classList.add('error-input')
-        document.getElementById("password-error").innerHTML = "* Password must be at least 6 characters long"
     } else {
-        document.getElementById("password-error").innerHTML = ""
+        const errors = []
+        
+        if (passwordValue.length < 8) {
+            errors.push("at least 8 characters")
+        }
+        
+        if (passwordValue.length > 72) {
+            errors.push("maximum 72 characters")
+        }
+        
+        if (!/[a-zA-Z]/.test(passwordValue)) {
+            errors.push("at least one letter")
+        }
+        
+        if (!/[0-9]/.test(passwordValue)) {
+            errors.push("at least one number")
+        }
+        
+        if (errors.length > 0) {
+            isFormValid = false
+            passwordInput.classList.add('error-input')
+            document.getElementById("password-error").innerHTML = "* Password must contain: " + errors.join(", ") + "."
+        } else {
+            document.getElementById("password-error").innerHTML = ""
+        }
     }
 
     // Confirm Password Validation
