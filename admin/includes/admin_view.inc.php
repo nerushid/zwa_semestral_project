@@ -82,7 +82,7 @@ function print_listings_table(array $listings): void {
         $id = htmlspecialchars((string)$listing['id']);
         $location = 'Prague ' . htmlspecialchars($listing['praha']) . ', ' . htmlspecialchars($listing['district']);
         $layout = htmlspecialchars($listing['layout']);
-        $price = htmlspecialchars(number_format((int)$listing['price'], 0, '.', ' ')) . ' CZK';
+        $price = htmlspecialchars(number_format((int)$listing['price'], 0, '.', ' ')) . ' CZK/month';
         $ownerId = isset($listing['user_id']) ? htmlspecialchars((string)$listing['user_id']) : 'N/A';
         $owner = isset($listing['firstname']) ? htmlspecialchars($listing['firstname'] . ' ' . $listing['surname']) . ' (' . $ownerId . ')' : 'N/A';
         $date = htmlspecialchars(date('M j, Y', strtotime($listing['created_at'])));

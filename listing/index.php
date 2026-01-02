@@ -41,7 +41,7 @@ $user = get_listing_owner($pdo, (int)$listing['user_id']);
             <div class="listing-info">
                 <div class="info-header">
                     <h1>Apartment for Rent</h1>
-                    <p class="price"><span class="price-amount"><?php echo htmlspecialchars($listing['price']); ?></span> CZK/month</p>
+                    <p class="price"><span class="price-amount"><?php echo htmlspecialchars(number_format((int)$listing['price'], 0, '.', ' ')); ?></span> CZK/month</p>
                 </div>
 
                 <div class="basic-info">

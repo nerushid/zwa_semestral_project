@@ -38,7 +38,7 @@ function print_listings(PDO $pdo, array $listings): void {
         $district = htmlspecialchars((string)($listing["district"]));
         $layout = htmlspecialchars((string)($listing["layout"]));
         $area = htmlspecialchars((string)($listing["area"]));
-        $price = htmlspecialchars((string)($listing["price"]));
+        $price = htmlspecialchars(number_format((int)$listing["price"], 0, '.', ' '));
         $listingId = (int)$listing["id"];
 
         $images = get_all_images_for_listing($pdo, $listingId);
