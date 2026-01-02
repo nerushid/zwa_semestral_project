@@ -154,3 +154,23 @@ input[type="text"]:focus {
         font-size: 0.98em;
     }
 }
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    body {
+        background: white;
+    }
+
+    main {
+        box-shadow: none;
+        border: 1px solid black;
+        max-width: 100%;
+        margin: 20px;
+    }
+
+    .form-group input {
+        border: 1px solid black !important;
+    }
+}

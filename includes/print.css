@@ -1,0 +1,274 @@
+/* ========================================
+   GLOBAL PRINT STYLES
+   Applied to all pages
+   ======================================== */
+
+@media print {
+    /* ========================================
+       PAGE SETUP
+       ======================================== */
+    @page {
+        margin: 1.5cm;
+        size: A4;
+    }
+
+    body, div, section, article, aside, main {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12pt;
+        line-height: 1.5;
+        font-family: "Times New Roman", Georgia, serif;
+        background: white;
+        color: black !important;
+    }
+
+    /* ========================================
+       FORCE BLACK TEXT ON FORM PAGES
+       ======================================== */
+    h1, h2, h3, h4, h5, h6,
+    p, span, div, label, a,
+    input, select, textarea,
+    button, form,
+    .error, .required,
+    .info-label, .info-value,
+    .price, .price-amount,
+    .description, .contact-info,
+    .for-rent, .flat-size, .flat-location, .flat-cost,
+    #strong {
+        color: black !important;
+    }
+
+    /* ========================================
+       HIDE NON-PRINTABLE ELEMENTS
+       ======================================== */
+    header,
+    header *,
+    nav,
+    nav *,
+    footer,
+    footer *,
+    button,
+    button *,
+    input[type="submit"],
+    input[type="button"],
+    .no-print,
+    #filters-section,
+    #filters-section *,
+    .pagination,
+    .pagination *,
+    .tabs,
+    .tabs *,
+    .controls,
+    .controls *,
+    .slider-btn,
+    .slider-dots,
+    .gallery-btn,
+    .sort-container,
+    .sort-container *,
+    .button-group,
+    .button-group *,
+    .dialog-buttons,
+    .dialog-buttons *,
+    dialog,
+    dialog *,
+    #reset-filters,
+    #search-button,
+    #logout,
+    #right-side,
+    #right-side *,
+    .edit-profile,
+    .change-password,
+    .mylistings,
+    .deleteaccountBtn,
+    .cancel-button,
+    .back-button,
+    .back-btn,
+    .save-button,
+    .add-listing-btn,
+    .listing-actions,
+    .listing-actions *,
+    .actions,
+    .actions *,
+    .btn-promote,
+    .btn-demote,
+    .btn-delete,
+    .btn-view,
+    .edit-btn,
+    .delete-btn,
+    .view-btn,
+    .remove-image-btn,
+    #submit-button,
+    #submitid,
+    #register-link,
+    #login-link,
+    #new-listing,
+    #new-listing2,
+    #nestly-logo,
+    .prev-btn,
+    .next-btn,
+    .dot,
+    .slide-counter {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    h1 {
+        font-size: 24pt;
+        margin: 20px 0 15px 0;
+        page-break-after: avoid;
+        font-weight: bold;
+        color: black !important;
+    }
+
+    h2 {
+        font-size: 18pt;
+        margin: 15px 0 10px 0;
+        page-break-after: avoid;
+        font-weight: bold;
+        color: black !important;
+    }
+
+    h3 {
+        font-size: 14pt;
+        margin: 10px 0;
+        page-break-after: avoid;
+        font-weight: bold;
+        color: black !important;
+    }
+
+    p {
+        margin: 8px 0;
+        orphans: 3;
+        widows: 3;
+        color: black !important;
+    }
+
+    /* ========================================
+       PAGE BREAKS
+       ======================================== */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    table, figure, img, .listing-card, .listing-detail, article {
+        page-break-inside: avoid;
+    }
+
+    /* ========================================
+       LINKS
+       ======================================== */
+    a {
+        text-decoration: underline;
+        color: black !important;
+        font-weight: normal;
+    }
+
+    a[href^="http"]:after, 
+    a[href^="https"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.85em;
+        font-style: italic;
+        color: black !important;
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript"]:after,
+    a[href^="mailto:"]:after,
+    a[href^="tel:"]:after {
+        content: "";
+    }
+
+    /* ========================================
+       IMAGES
+       ======================================== */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid;
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* ========================================
+       TABLES
+       ======================================== */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    th, td {
+        border: 1px solid black !important;
+        padding: 8px;
+        text-align: left;
+        color: black !important;
+    }
+
+    thead {
+        display: table-header-group;
+        font-weight: bold;
+    }
+
+    tbody tr {
+        page-break-inside: avoid;
+    }
+
+    /* ========================================
+       FORMS (for display only)
+       ======================================== */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    textarea,
+    select {
+        border: 1px solid black !important;
+        padding: 5px;
+        background: white !important;
+        color: black !important;
+    }
+
+    .error-input {
+        border: 2px solid black !important;
+        font-weight: bold;
+        color: black !important;
+    }
+
+    .error {
+        font-weight: bold;
+        font-style: italic;
+        color: black !important;
+    }
+
+    label {
+        font-weight: bold;
+        color: black !important;
+    }
+
+    .required {
+        color: black !important;
+    }
+
+    /* ========================================
+       BADGES AND STATUS
+       ======================================== */
+    .badge {
+        border: 1px solid black !important;
+        padding: 4px 8px;
+        display: inline-block;
+        font-weight: bold;
+        color: black !important;
+    }
+}

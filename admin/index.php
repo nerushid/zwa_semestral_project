@@ -52,6 +52,7 @@ if ($activeTab === 'users') {
     <title>Admin Control Panel - NestlyHomes</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="admin.js" defer></script>
 </head>
 <body>

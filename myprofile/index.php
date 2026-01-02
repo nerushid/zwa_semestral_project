@@ -18,6 +18,7 @@ if (!isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="deleteaccount_dialog.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="deleteaccount.js" defer></script>
 </head>
 <body>

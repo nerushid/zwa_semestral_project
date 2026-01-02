@@ -36,6 +36,7 @@ $listings = get_listings_with_limit($pdo, $startFrom, $resultsPerPage, $conditio
     <link rel="stylesheet" href="listingstyle.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="logout_dialog.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
 
     <script src="filter.js" defer></script>
     <script src="prague_district_input.js" defer></script>

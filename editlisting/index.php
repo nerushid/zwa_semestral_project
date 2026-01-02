@@ -27,6 +27,7 @@ if (!$listing || $listing['user_id'] !== $_SESSION["user_id"]) {
     <title>Edit Listing</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../myprofile/header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="editlisting.js" defer></script>
     <script src="fh.js" defer></script>
 </head>

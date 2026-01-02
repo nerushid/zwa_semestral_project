@@ -276,3 +276,101 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    body {
+        background: white;
+    }
+
+    main {
+        max-width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .listing-detail {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    /* Image slider for single listing */
+    .single-listing-slider {
+        height: auto !important;
+        max-width: 100%;
+        margin: 0 0 20px 0;
+        box-shadow: none !important;
+        border: 1px solid black;
+        page-break-inside: avoid;
+    }
+
+    .slider-wrapper {
+        display: block !important;
+        height: auto !important;
+        transform: none !important;
+    }
+
+    .slide-image {
+        min-width: 100% !important;
+        max-height: 400px !important;
+        object-fit: contain !important;
+        page-break-inside: avoid;
+        display: none;
+    }
+
+    .slide-image:first-child {
+        display: block !important;
+    }
+
+    /* Listing information */
+    .listing-info {
+        page-break-inside: avoid;
+        margin-top: 20px;
+    }
+
+    .info-header,
+    .basic-info,
+    .description-section,
+    .contact-section {
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+    }
+
+    .info-header {
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
+    }
+
+    .price-amount {
+        font-weight: bold;
+        color: black !important;
+    }
+
+    .basic-info {
+        border: 1px solid black;
+        padding: 15px;
+        background: white !important;
+    }
+
+    .description-section,
+    .contact-section {
+        border-top: 1px solid black;
+        padding-top: 15px;
+    }
+
+    .contact-info {
+        border: 1px solid black;
+        padding: 15px;
+        background: white !important;
+    }
+
+    .contact-info a {
+        color: black !important;
+        text-decoration: underline;
+    }
+}

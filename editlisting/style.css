@@ -194,3 +194,30 @@ h1 {
         flex-direction: column;
     }
 }
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    body {
+        background: white;
+    }
+
+    main {
+        box-shadow: none;
+        border: 1px solid black;
+        max-width: 100%;
+        margin: 20px;
+    }
+
+    .form-group {
+        page-break-inside: avoid;
+        margin-bottom: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        border: 1px solid black !important;
+    }
+}

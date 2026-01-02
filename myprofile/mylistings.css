@@ -353,3 +353,64 @@ h1 {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    body {
+        background: white;
+    }
+
+    main {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .sort-container {
+        display: none !important;
+    }
+
+    .listings-container {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .listing-card {
+        page-break-inside: avoid;
+        border: 1px solid black !important;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: white !important;
+    }
+
+    .listing-card:hover {
+        box-shadow: none !important;
+    }
+
+    .listing-header {
+        border-bottom: 1px solid black;
+    }
+
+    .listing-features {
+        border-top: 1px solid black;
+    }
+
+    .listing-actions {
+        display: none !important;
+    }
+
+    .back-button {
+        display: none !important;
+    }
+
+    .no-listings {
+        border: 1px solid black;
+        padding: 30px;
+    }
+}

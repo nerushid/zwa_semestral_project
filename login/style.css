@@ -127,3 +127,36 @@ label {
     color: rgb(138, 138, 138);
     margin-bottom: 0.5em;
 }
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    body {
+        background: white;
+    }
+
+    main {
+        min-height: auto;
+        display: block;
+        padding: 20px;
+    }
+
+    form {
+        box-shadow: none;
+        border: 1px solid black;
+        max-width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    input[type="password"] {
+        -webkit-text-security: none;
+    }
+
+    input[type="password"]::after {
+        content: "••••••••";
+    }
+}

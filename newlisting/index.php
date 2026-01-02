@@ -14,9 +14,10 @@ if (!isset($_SESSION["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>New Listing</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="imgupload.js" defer></script>
     <script src="select.js" defer></script>
     <script src="formcheck.js" defer></script>

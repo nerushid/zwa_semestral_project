@@ -11,6 +11,7 @@ require_once 'includes/login_view.inc.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="index.js" defer></script>
     <title>Login</title>
 </head>

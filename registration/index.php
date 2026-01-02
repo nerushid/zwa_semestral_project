@@ -15,6 +15,7 @@ $passwordClass = $passwordError ? ' error-input' : '';
     <title>Sign Up</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="index.js" defer></script>
 </head>
 <body>

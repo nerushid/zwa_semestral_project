@@ -16,6 +16,7 @@ if (!isset($_SESSION["user_id"])) {
     <title>Edit Profile</title>
     <link rel="stylesheet" href="editprofile.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="editprofile.js" defer></script>
 </head>
 <body>

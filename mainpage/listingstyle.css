@@ -217,4 +217,92 @@ section.listings article:hover {
     cursor: default;
 }
 
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    main {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        margin: 0;
+        padding: 10px;
+    }
+
+    /* Hide filter section */
+    #filters-section {
+        display: none !important;
+    }
+
+    #listings-and-pagination {
+        width: 100%;
+    }
+
+    /* Listings layout for print */
+    section.listings {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        padding: 0;
+    }
+
+    section.listings article {
+        page-break-inside: avoid;
+        border: 1px solid black !important;
+        padding: 15px;
+        margin-bottom: 20px;
+        background: white !important;
+    }
+
+    section.listings article:hover {
+        box-shadow: none !important;
+    }
+
+    /* Image slider - show only first image */
+    .image-slider-container {
+        height: auto !important;
+        position: static;
+        border-radius: 0;
+    }
+
+    .slider-images {
+        position: static !important;
+        height: auto !important;
+    }
+
+    .slider-image {
+        position: static !important;
+        opacity: 1 !important;
+        display: none !important;
+        max-height: 250px;
+        object-fit: contain;
+    }
+
+    .slider-image:first-child {
+        display: block !important;
+    }
+
+    /* Text formatting */
+    .for-rent,
+    .flat-size,
+    .flat-location,
+    .flat-cost {
+        color: black !important;
+        border-color: black !important;
+    }
+
+    #strong {
+        font-weight: bold;
+        color: black !important;
+    }
+
+    /* Remove pagination */
+    .pagination {
+        display: none !important;
+    }
+}
+
 

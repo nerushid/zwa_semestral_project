@@ -36,6 +36,7 @@ $listings = get_user_listings_with_limit($pdo, $_SESSION["user_id"], $startFrom,
     <title>My Listings</title>
     <link rel="stylesheet" href="mylistings.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="mylistings_sort.js" defer></script>
 </head>
 <body>

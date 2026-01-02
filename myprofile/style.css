@@ -104,3 +104,28 @@ p {
         font-size: 0.95em;
     }
 }
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    body {
+        background: white;
+    }
+
+    main {
+        box-shadow: none;
+        border: 1px solid black;
+        max-width: 100%;
+        margin: 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        border-bottom: 1px solid black;
+        font-size: 12pt;
+    }
+}

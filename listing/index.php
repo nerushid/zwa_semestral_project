@@ -23,6 +23,7 @@ $user = get_listing_owner($pdo, (int)$listing['user_id']);
     <title>Apartment Details - NestlyHomes</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../includes/print.css" media="print">
     <script src="slider.js" defer></script>
 </head>
 <body>
