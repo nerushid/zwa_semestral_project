@@ -1,4 +1,14 @@
 <?php
+/**
+ * Registration View Helper
+ * 
+ * Contains functions for rendering registration form elements
+ * with error handling and value persistence.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
 function signup_inputs() {

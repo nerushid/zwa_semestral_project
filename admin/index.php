@@ -1,4 +1,15 @@
 <?php
+/**
+ * Admin Control Panel
+ * 
+ * Administrative interface for managing users and listings.
+ * Provides tabbed interface with search, sort, and pagination.
+ * Requires administrator privileges.
+ * 
+ * @package NestlyHomes
+ * @subpackage Administration
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/dbh.inc.php';
 require_once 'includes/admin_model.inc.php';

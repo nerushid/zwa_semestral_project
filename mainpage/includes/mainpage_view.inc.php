@@ -1,6 +1,26 @@
 <?php
+/**
+ * Main Page View Helper
+ * 
+ * Contains functions for rendering main page elements including
+ * header navigation, listing cards, and pagination controls.
+ * All output is properly escaped to prevent XSS attacks.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
+/**
+ * Prints header navigation based on user authentication status
+ * 
+ * Renders appropriate navigation links for logged-in users,
+ * administrators, and anonymous visitors.
+ * 
+ * @param PDO $pdo Database connection for admin check
+ * @return void
+ */
 function print_header(PDO $pdo): void {
     if (isset($_SESSION["user_id"])) {
         require_once __DIR__ . '/../../includes/user_model.inc.php';
@@ -21,6 +41,16 @@ function print_header(PDO $pdo): void {
     }
 }
 
+/**
+ * Prints listing cards for apartment display
+ * 
+ * Renders article elements for each listing with image slider,
+ * property details, and pricing information.
+ * 
+ * @param PDO $pdo Database connection for image retrieval
+ * @param array $listings Array of listing data from database
+ * @return void
+ */
 function print_listings(PDO $pdo, array $listings): void {
     if (empty($listings)) {
         echo '<p>No listings found.</p>';
@@ -75,6 +105,16 @@ function print_listings(PDO $pdo, array $listings): void {
     }
 }
 
+/**
+ * Prints pagination navigation controls
+ * 
+ * Renders page navigation with previous/next buttons and
+ * numbered page links. Preserves current filter parameters.
+ * 
+ * @param int $currentPage Current page number (1-indexed)
+ * @param int $totalPages Total number of available pages
+ * @return void
+ */
 function print_pagination(int $currentPage, int $totalPages): void {
     if ($totalPages <= 1) return;
 

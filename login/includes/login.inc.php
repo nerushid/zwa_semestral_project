@@ -1,4 +1,15 @@
 <?php
+/**
+ * Login Form Handler
+ * 
+ * Processes login form submissions, validates credentials,
+ * and manages user session creation upon successful authentication.
+ * Implements CSRF protection and secure password verification.
+ * 
+ * @package NestlyHomes
+ * @subpackage Authentication
+ */
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"]);
     $pwd = $_POST["password"];

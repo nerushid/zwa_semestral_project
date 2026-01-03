@@ -1,4 +1,15 @@
 <?php
+/**
+ * AJAX Listings Loader
+ * 
+ * Handles AJAX requests for dynamic listing updates.
+ * Returns HTML content for listings section with pagination.
+ * Used for filter updates without full page reload.
+ * 
+ * @package NestlyHomes
+ * @subpackage AJAX
+ */
+
 require_once __DIR__ . '/../../includes/config_session.php';
 require_once __DIR__ . '/../../includes/dbh.inc.php';
 require_once __DIR__ . '/mainpage_model.inc.php';

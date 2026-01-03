@@ -1,4 +1,14 @@
 <?php
+/**
+ * Change Password Page
+ * 
+ * Displays form for changing user password.
+ * Requires current password verification and new password confirmation.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/csrf.inc.php';
 require_once 'includes/changepwd_view.inc.php';

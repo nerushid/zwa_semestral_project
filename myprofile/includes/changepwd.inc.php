@@ -1,4 +1,15 @@
 <?php
+/**
+ * Change Password Form Handler
+ * 
+ * Processes password change form submissions.
+ * Verifies current password and validates new password
+ * against security requirements.
+ * 
+ * @package NestlyHomes
+ * @subpackage Handlers
+ */
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $currentPwd = $_POST["current_password"];
     $newPwd = $_POST["new_password"];

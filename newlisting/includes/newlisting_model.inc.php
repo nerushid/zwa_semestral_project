@@ -1,4 +1,14 @@
 <?php
+/**
+ * New Listing Model
+ * 
+ * Contains database functions for creating new listings
+ * and associated image records.
+ * 
+ * @package NestlyHomes
+ * @subpackage Models
+ */
+
 declare(strict_types=1);
 
 function create_new_listing(PDO $pdo, int $userId, string $praha, string $district, string $layout, int $area, int $price, string $description): int {

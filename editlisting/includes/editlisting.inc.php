@@ -1,4 +1,13 @@
 <?php
+/**
+ * Edit Listing Form Handler
+ * 
+ * Processes listing edit form submissions.
+ * Validates ownership, input data, and updates listing in database.
+ * 
+ * @package NestlyHomes
+ * @subpackage Handlers
+ */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $listingId = (int)$_POST["listing_id"];

@@ -1,4 +1,14 @@
 <?php
+/**
+ * New Listing Form Handler
+ * 
+ * Processes new listing form submissions.
+ * Validates input, handles image uploads with resizing,
+ * and creates database records for listings and images.
+ * 
+ * @package NestlyHomes
+ * @subpackage Handlers
+ */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($_POST) && empty($_FILES) && $_SERVER['CONTENT_LENGTH'] > 0) {

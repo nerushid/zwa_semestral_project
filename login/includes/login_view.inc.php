@@ -1,7 +1,26 @@
 <?php
+/**
+ * Login View Helper
+ * 
+ * Contains functions for rendering login form elements
+ * with error handling and value persistence.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
-function print_inputs() {
+/**
+ * Prints login form input fields
+ * 
+ * Renders email and password input fields with error messages
+ * and value persistence from session data. Handles display
+ * of validation errors and CSRF errors.
+ * 
+ * @return void
+ */
+function print_inputs(): void {
     $emailValue = $_SESSION["login_data"]["email"] ?? '';
     $emailError = $_SESSION["login_errors"]["email_error"] ?? '';
     $passwordError = $_SESSION["login_errors"]["password_error"] ?? '';

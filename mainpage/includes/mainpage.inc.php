@@ -1,4 +1,14 @@
 <?php
+/**
+ * Main Page Filter Handler
+ * 
+ * Processes filter form submissions and redirects with
+ * validated filter parameters in URL query string.
+ * Implements POST-Redirect-GET pattern.
+ * 
+ * @package NestlyHomes
+ * @subpackage Handlers
+ */
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     try {

@@ -1,4 +1,19 @@
 <?php
+/**
+ * Database Handler
+ * 
+ * Establishes PDO connection to MySQL database with secure settings.
+ * Configures error mode to throw exceptions and disables emulated prepared statements
+ * for true prepared statement support preventing SQL injection.
+ * 
+ * @package NestlyHomes
+ * @subpackage Database
+ * 
+ * @var string $dsn Data Source Name for MySQL connection
+ * @var string $dbusername Database username
+ * @var string $dbpassword Database password
+ * @var PDO $pdo PDO connection instance
+ */
 
 $dsn = "mysql:host=localhost;dbname=shcheiva";
 $dbusername = "shcheiva";

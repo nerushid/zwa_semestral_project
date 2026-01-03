@@ -1,6 +1,26 @@
 <?php
-declare(strict_types = 1);
+/**
+ * Main Page Model
+ * 
+ * Contains database functions for listing retrieval with filtering,
+ * sorting, and pagination support. Uses prepared statements
+ * for all database queries.
+ * 
+ * @package NestlyHomes
+ * @subpackage Models
+ */
 
+declare(strict_types=1);
+
+/**
+ * Builds SQL conditions and parameters from filter array
+ * 
+ * Converts filter parameters into SQL WHERE conditions
+ * with corresponding prepared statement parameters.
+ * 
+ * @param array $filters Associative array of filter values
+ * @return array Contains 'conditions' array and 'params' array
+ */
 function setConditionForQuerry(array $filters): array {
     $conditions = [];
     $params = [];
@@ -48,7 +68,14 @@ function setConditionForQuerry(array $filters): array {
     return ['conditions' => $conditions, 'params' => $params];
 }
 
-
+/**
+ * Gets total count of listings matching filters
+ * 
+ * @param PDO $pdo Database connection instance
+ * @param array $conditions SQL WHERE conditions
+ * @param array $params Prepared statement parameters
+ * @return int Total number of matching listings
+ */
 function get_number_of_listings(PDO $pdo, array $conditions = [], array $params = []): int {
     $sql = "SELECT COUNT(id) AS total FROM listings l";
     if (!empty($conditions)) {
@@ -64,7 +91,17 @@ function get_number_of_listings(PDO $pdo, array $conditions = [], array $params 
     return $totalListings;
 }
 
-
+/**
+ * Retrieves paginated listings with optional filters and sorting
+ * 
+ * @param PDO $pdo Database connection instance
+ * @param int $startFrom Offset for pagination
+ * @param int $resultsPerPage Number of results to return
+ * @param array $conditions SQL WHERE conditions
+ * @param array $params Prepared statement parameters
+ * @param string $sort Sort order ('newest', 'cheap', 'expensive')
+ * @return array Array of listing records
+ */
 function get_listings_with_limit(PDO $pdo, int $startFrom, int $resultsPerPage, array $conditions, array $params, string $sort = 'newest'): array {
     $sql = "SELECT l.*, 
             (SELECT image_path FROM listing_images WHERE listing_id = l.id LIMIT 1) as main_image
@@ -96,6 +133,13 @@ function get_listings_with_limit(PDO $pdo, int $startFrom, int $resultsPerPage, 
     return $listings;
 }
 
+/**
+ * Retrieves all images for a specific listing
+ * 
+ * @param PDO $pdo Database connection instance
+ * @param int $listingId The listing ID
+ * @return array Array of image paths
+ */
 function get_all_images_for_listing(PDO $pdo, int $listingId): array {
     $sql = "SELECT image_path FROM listing_images WHERE listing_id = :listingId";
     $stmt = $pdo->prepare($sql);

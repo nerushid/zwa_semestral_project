@@ -1,4 +1,14 @@
 <?php
+/**
+ * Admin Actions Handler
+ * 
+ * Processes administrative actions from the admin panel.
+ * Handles user management (delete, promote, demote) and
+ * listing management (delete) operations.
+ * 
+ * @package NestlyHomes
+ * @subpackage Handlers
+ */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {

@@ -1,4 +1,14 @@
 <?php
+/**
+ * Pagination Helper
+ * 
+ * Calculates pagination parameters and retrieves paginated
+ * listings for session storage.
+ * 
+ * @package NestlyHomes
+ * @subpackage Helpers
+ */
+
 require_once __DIR__ . '/../../includes/dbh.inc.php';
 require_once __DIR__ . '/../../includes/config_session.php';
 require_once __DIR__ . '/mainpage_model.inc.php';

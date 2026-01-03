@@ -1,4 +1,14 @@
 <?php
+/**
+ * New Listing View Helper
+ * 
+ * Contains functions for rendering new listing form elements
+ * with error handling and value persistence.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
 function print_praha_selection(): void {

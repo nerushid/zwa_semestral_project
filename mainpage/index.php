@@ -1,4 +1,15 @@
 <?php
+/**
+ * Main Page - Listings Overview
+ * 
+ * Displays paginated apartment listings with filtering and sorting options.
+ * Supports AJAX-based filtering for seamless user experience.
+ * Implements server-side pagination as required by project rules.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once __DIR__ . '/../includes/config_session.php';
 require_once __DIR__ . '/../includes/dbh.inc.php';
 require_once __DIR__ . '/includes/mainpage_model.inc.php';

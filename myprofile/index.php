@@ -1,4 +1,15 @@
 <?php
+/**
+ * User Profile Page
+ * 
+ * Displays user profile information with links to edit profile,
+ * change password, view listings, and delete account.
+ * Requires authentication.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/csrf.inc.php';
 require_once 'includes/myprofile_view.inc.php';

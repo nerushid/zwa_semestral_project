@@ -1,4 +1,15 @@
 <?php
+/**
+ * Edit Profile Page
+ * 
+ * Displays form for editing user profile information
+ * including first name, surname, and email.
+ * Requires authentication.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/csrf.inc.php';
 require_once 'includes/editprofile_view.inc.php';

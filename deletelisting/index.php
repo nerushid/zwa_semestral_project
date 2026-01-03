@@ -1,4 +1,15 @@
 <?php
+/**
+ * Delete Listing Confirmation Page
+ * 
+ * Displays confirmation dialog for listing deletion.
+ * Requires authentication and listing ownership verification.
+ * Shows listing preview before deletion.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/dbh.inc.php';
 require_once '../editlisting/includes/editlisting_model.inc.php';

@@ -1,11 +1,36 @@
 <?php
+/**
+ * Edit Listing Controller
+ * 
+ * Contains validation functions for listing edit form processing.
+ * Validates location, layout, and other listing attributes.
+ * 
+ * @package NestlyHomes
+ * @subpackage Controllers
+ */
+
 declare(strict_types=1);
 
+/**
+ * Validates Praha (Prague district) value
+ * 
+ * @param string $praha The Praha value to validate
+ * @return bool True if valid (1-10), false otherwise
+ */
 function isValidPrahaFilter(string $praha): bool {
     $validPraha = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
     return in_array($praha, $validPraha, true);
 }
 
+/**
+ * Validates district against selected Praha
+ * 
+ * Ensures the district belongs to the selected Prague area.
+ * 
+ * @param string $district The district name to validate
+ * @param string $praha The selected Praha district
+ * @return bool True if district belongs to Praha, false otherwise
+ */
 function isValidDistrictFilter(string $district, string $praha): bool {
     $validDistricts = [
         '1' => ['Hradčany', 'Josefov', 'Malá Strana', 'Nové Město', 'Staré Město'],
@@ -22,6 +47,12 @@ function isValidDistrictFilter(string $district, string $praha): bool {
     return in_array($district, $validDistricts[$praha] ?? [], true);
 }
 
+/**
+ * Validates layout format
+ * 
+ * @param string $layout The layout type to validate
+ * @return bool True if valid layout type, false otherwise
+ */
 function isValidLayoutFilter(string $layout): bool {
     $validLayouts = ['1+kk', '1+1', '2+kk', '2+1', '3+kk', '3+1', '4+kk', '4+1', '5+kk', '5+1'];
     return in_array($layout, $validLayouts, true);

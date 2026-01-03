@@ -1,7 +1,26 @@
 <?php
-declare(strict_types = 1);
+/**
+ * Edit Profile View Helper
+ * 
+ * Contains functions for rendering edit profile form elements
+ * with error handling and value persistence.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
 
-function print_inputs() {
+declare(strict_types=1);
+
+/**
+ * Prints edit profile form input fields
+ * 
+ * Renders input fields for first name, surname, and email
+ * with current values, error messages, and CSRF error display.
+ * Clears session data after rendering.
+ * 
+ * @return void
+ */
+function print_inputs(): void {
     $firstnameValue = $_SESSION["editprofile_data"]["firstname"] ?? $_SESSION["user_firstname"];
     $surnameValue = $_SESSION["editprofile_data"]["surname"] ?? $_SESSION["user_surname"];
     $emailValue = $_SESSION["editprofile_data"]["email"] ?? $_SESSION["user_email"];

@@ -1,4 +1,15 @@
 <?php
+/**
+ * My Listings Page
+ * 
+ * Displays paginated list of user's own listings with
+ * sorting options and edit/delete actions.
+ * Requires authentication.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once '../includes/config_session.php';
 require_once 'includes/mylistings_view.inc.php';
 require_once 'includes/mylistings_model.inc.php';

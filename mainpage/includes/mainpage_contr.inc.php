@@ -1,6 +1,22 @@
 <?php
-declare(strict_types = 1);
+/**
+ * Main Page Controller
+ * 
+ * Contains validation functions for filter parameters.
+ * Ensures all user input is validated against allowed values.
+ * 
+ * @package NestlyHomes
+ * @subpackage Controllers
+ */
 
+declare(strict_types=1);
+
+/**
+ * Validates Praha (Prague district) filter value
+ * 
+ * @param string $praha The Praha value to validate
+ * @return bool True if valid Prague district (1-10), false otherwise
+ */
 function isValidPrahaFilter(string $praha): bool {
     $validPraha = [
         '1', '2', '3', '4', '5',
@@ -9,6 +25,13 @@ function isValidPrahaFilter(string $praha): bool {
     return in_array($praha, $validPraha, true);
 }
 
+/**
+ * Validates district filter against selected Praha
+ * 
+ * @param string $district The district name to validate
+ * @param string $praha The selected Praha district
+ * @return bool True if district belongs to Praha, false otherwise
+ */
 function isValidDistrictFilter(string $district, string $praha): bool {
     $validDistricts = [
         '1' => ['Hradčany', 'Josefov', 'Malá Strana', 'Nové Město', 'Staré Město'],
@@ -25,27 +48,63 @@ function isValidDistrictFilter(string $district, string $praha): bool {
     return in_array($district, $validDistricts[$praha] ?? [], true);
 }
 
+/**
+ * Validates price from filter value
+ * 
+ * @param string $priceFrom The minimum price value
+ * @return bool True if valid positive integer, false otherwise
+ */
 function isValidPriceFromFilter(string $priceFrom): bool {
     return ctype_digit(trim($priceFrom));
 }
 
+/**
+ * Validates price to filter value
+ * 
+ * @param string $priceTo The maximum price value
+ * @return bool True if valid positive integer, false otherwise
+ */
 function isValidPriceToFilter(string $priceTo): bool {
     return ctype_digit(trim($priceTo));
 }
 
+/**
+ * Validates area from filter value
+ * 
+ * @param string $areaFrom The minimum area value
+ * @return bool True if valid positive integer, false otherwise
+ */
 function isValidAreaFromFilter(string $areaFrom): bool {
     return ctype_digit(trim($areaFrom));
 }
 
+/**
+ * Validates area to filter value
+ * 
+ * @param string $areaTo The maximum area value
+ * @return bool True if valid positive integer, false otherwise
+ */
 function isValidAreaToFilter(string $areaTo): bool {
     return ctype_digit(trim($areaTo));
 }
 
+/**
+ * Validates layout filter value
+ * 
+ * @param string $layout The layout type to validate
+ * @return bool True if valid layout type, false otherwise
+ */
 function isValidLayoutFilter(string $layout): bool {
     $validLayouts = ['1+kk', '1+1', '2+kk', '2+1', '3+kk', '3+1', '4+kk', '4+1', '5+kk', '5+1'];
     return in_array($layout, $validLayouts, true);
 }
 
+/**
+ * Validates sort by filter value
+ * 
+ * @param string $sortBy The sort option to validate
+ * @return bool True if valid sort option, false otherwise
+ */
 function isValidSortByFilter(string $sortBy): bool {
     $validSortBy = ['newest', 'cheap', 'expensive'];
     return in_array($sortBy, $validSortBy, true);

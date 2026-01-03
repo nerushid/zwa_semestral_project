@@ -1,4 +1,14 @@
 <?php
+/**
+ * Delete Account Handler
+ * 
+ * Processes account deletion requests.
+ * Deletes user account, associated listings, and image files.
+ * Destroys session after successful deletion.
+ * 
+ * @package NestlyHomes
+ * @subpackage Handlers
+ */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     

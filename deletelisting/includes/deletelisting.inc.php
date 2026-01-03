@@ -1,4 +1,14 @@
 <?php
+/**
+ * Delete Listing Handler
+ * 
+ * Processes listing deletion requests.
+ * Verifies ownership, deletes listing images from filesystem,
+ * and removes database records.
+ * 
+ * @package NestlyHomes
+ * @subpackage Handlers
+ */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $listingId = isset($_POST["listing_id"]) ? (int)$_POST["listing_id"] : 0;

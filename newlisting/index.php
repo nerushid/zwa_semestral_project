@@ -1,4 +1,15 @@
 <?php
+/**
+ * New Listing Page
+ * 
+ * Displays form for creating new apartment listings.
+ * Requires user authentication. Includes image upload
+ * functionality and form validation.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/csrf.inc.php';
 require_once 'includes/newlisting_view.inc.php';

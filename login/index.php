@@ -1,4 +1,14 @@
 <?php
+/**
+ * Login Page
+ * 
+ * Displays the login form for user authentication.
+ * Includes client-side validation and CSRF protection.
+ * 
+ * @package NestlyHomes
+ * @subpackage Authentication
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/csrf.inc.php';
 require_once 'includes/login_view.inc.php';

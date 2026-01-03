@@ -1,6 +1,22 @@
 <?php
+/**
+ * My Listings View Helper
+ * 
+ * Contains functions for rendering user's listings page elements
+ * including sort dropdown, listing cards, and pagination.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
+/**
+ * Prints sort dropdown for listings
+ * 
+ * @param string $currentSort Current sort option value
+ * @return void
+ */
 function print_sort_dropdown(string $currentSort): void {
     // Escape the sort value for safety
     $currentSort = htmlspecialchars($currentSort, ENT_QUOTES, 'UTF-8');
@@ -16,6 +32,15 @@ function print_sort_dropdown(string $currentSort): void {
           </div>';
 }
 
+/**
+ * Prints user's listing cards
+ * 
+ * Renders listing cards with property details and action buttons.
+ * Shows "no listings" message with create button if empty.
+ * 
+ * @param array $listings Array of user's listings
+ * @return void
+ */
 function print_listings(array $listings): void {
     if (empty($listings)) {
         echo '<div class="no-listings">
@@ -57,6 +82,14 @@ function print_listings(array $listings): void {
     echo '</div>';
 }
 
+/**
+ * Prints pagination for user listings
+ * 
+ * @param int $currentPage Current page number
+ * @param int $totalPages Total number of pages
+ * @param string $sort Current sort option
+ * @return void
+ */
 function print_pagination(int $currentPage, int $totalPages, string $sort): void {
     if ($totalPages <= 1) return;
 

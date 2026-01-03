@@ -1,6 +1,26 @@
 <?php
+/**
+ * Edit Listing View Helper
+ * 
+ * Contains functions for rendering edit listing form elements
+ * with current values, error handling, and district selection.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
+/**
+ * Prints edit listing form input fields
+ * 
+ * Renders all form fields populated with current listing data.
+ * Includes Praha/district cascading selects, layout, area,
+ * price, and description fields with validation errors.
+ * 
+ * @param array $listing Current listing data from database
+ * @return void
+ */
 function print_inputs(array $listing): void {
     $data = $_SESSION['editlisting_data'] ?? $listing;
     $errors = $_SESSION['editlisting_errors'] ?? [];
@@ -120,4 +140,3 @@ function print_inputs(array $listing): void {
     unset($_SESSION['editlisting_errors']);
     unset($_SESSION['editlisting_data']);
 }
-        

@@ -1,10 +1,22 @@
 <?php
+/**
+ * Password Validation Module
+ * 
+ * Provides password validation against security requirements.
+ * Enforces minimum length, maximum length, and character composition rules.
+ * 
+ * @package NestlyHomes
+ * @subpackage Validation
+ */
+
 declare(strict_types=1);
 
 /**
- * Validates password against security requirements:
+ * Validates password against security requirements
+ * 
+ * Checks password for:
  * - Minimum 8 characters
- * - Maximum 72 characters
+ * - Maximum 72 characters (bcrypt limit)
  * - At least one letter
  * - At least one number
  * 

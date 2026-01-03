@@ -1,4 +1,14 @@
 <?php
+/**
+ * Registration Form Handler
+ * 
+ * Processes user registration form submissions.
+ * Validates all input fields, handles image uploads,
+ * and creates new user accounts with hashed passwords.
+ * 
+ * @package NestlyHomes
+ * @subpackage Authentication
+ */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $firstName = trim($_POST["name"]);

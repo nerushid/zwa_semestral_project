@@ -1,7 +1,26 @@
 <?php
+/**
+ * Change Password View Helper
+ * 
+ * Contains functions for rendering password change form elements
+ * with error handling.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
-function print_inputs() {
+/**
+ * Prints password change form input fields
+ * 
+ * Renders input fields for current password, new password,
+ * and password confirmation with error messages.
+ * Clears session data after rendering.
+ * 
+ * @return void
+ */
+function print_inputs(): void {
     $currentPwdError = $_SESSION["changepwd_errors"]["current_password_error"] ?? '';
     $newPwdError = $_SESSION["changepwd_errors"]["new_password_error"] ?? '';
     $confirmPwdError = $_SESSION["changepwd_errors"]["new_password_confirm_error"] ?? '';

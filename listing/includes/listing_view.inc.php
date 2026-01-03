@@ -1,7 +1,26 @@
 <?php
-declare(strict_types = 1);
+/**
+ * Listing View Helper
+ * 
+ * Contains functions for rendering single listing page elements
+ * including header navigation and image slider.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
 
-function print_header(PDO $pdo) {
+declare(strict_types=1);
+
+/**
+ * Prints header navigation for listing page
+ * 
+ * Renders navigation links based on authentication status
+ * and admin privileges.
+ * 
+ * @param PDO $pdo Database connection for admin check
+ * @return void
+ */
+function print_header(PDO $pdo): void {
     if (isset($_SESSION["user_id"])) {
         require_once __DIR__ . '/../../includes/user_model.inc.php';
         $isAdmin = is_user_admin($pdo, $_SESSION["user_id"]);
@@ -23,6 +42,15 @@ function print_header(PDO $pdo) {
     }
 }
 
+/**
+ * Prints image slider for listing gallery
+ * 
+ * Renders image carousel with navigation buttons and counter.
+ * Falls back to placeholder if no images exist.
+ * 
+ * @param array $images Array of image paths from database
+ * @return void
+ */
 function print_slider(array $images): void {
     $totalImages = empty($images) ? 1 : count($images);
     

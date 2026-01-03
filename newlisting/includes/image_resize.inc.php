@@ -1,4 +1,16 @@
 <?php
+/**
+ * Image Resize Module
+ * 
+ * Contains functions for resizing uploaded images to
+ * thumbnail (420px) and medium (1080px) sizes.
+ * Supports JPEG, PNG, GIF, and WebP formats.
+ * 
+ * @package NestlyHomes
+ * @subpackage Utilities
+ */
+
+declare(strict_types=1);
 
 /**
  * Resize image to specified height while maintaining aspect ratio

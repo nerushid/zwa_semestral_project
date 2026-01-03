@@ -1,4 +1,14 @@
 <?php
+/**
+ * Registration Model
+ * 
+ * Contains database functions for user registration operations.
+ * Handles email uniqueness checks and new user creation.
+ * 
+ * @package NestlyHomes
+ * @subpackage Models
+ */
+
 declare(strict_types=1);
 
 function get_email(object $pdo, string $email) {

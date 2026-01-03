@@ -1,4 +1,14 @@
 <?php
+/**
+ * Edit Listing Page
+ * 
+ * Displays form for editing an existing listing.
+ * Requires authentication and listing ownership verification.
+ * 
+ * @package NestlyHomes
+ * @subpackage Pages
+ */
+
 require_once '../includes/config_session.php';
 require_once '../includes/dbh.inc.php';
 require_once '../includes/csrf.inc.php';

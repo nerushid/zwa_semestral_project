@@ -1,6 +1,26 @@
 <?php
+/**
+ * Admin View Helper
+ * 
+ * Contains functions for rendering admin panel interface elements
+ * including user tables, listing tables, and pagination.
+ * 
+ * @package NestlyHomes
+ * @subpackage Views
+ */
+
 declare(strict_types=1);
 
+/**
+ * Prints user management table
+ * 
+ * Renders table with user information and action buttons.
+ * Includes role badges and management controls for promoting/demoting
+ * administrators and deleting users.
+ * 
+ * @param array $users Array of user records from database
+ * @return void
+ */
 function print_users_table(array $users): void {
     if (empty($users) || !$users[0]) {
         echo '<p class="no-results">No users found.</p>';
@@ -57,6 +77,15 @@ function print_users_table(array $users): void {
       </div>';
 }
 
+/**
+ * Prints listing management table
+ * 
+ * Renders table with listing information and action buttons.
+ * Includes location, layout, price, owner information, and delete controls.
+ * 
+ * @param array $listings Array of listing records from database
+ * @return void
+ */
 function print_listings_table(array $listings): void {
     if (empty($listings) || !$listings[0]) {
         echo '<p class="no-results">No listings found.</p>';
@@ -106,6 +135,19 @@ function print_listings_table(array $listings): void {
       </div>';
 }
 
+/**
+ * Prints pagination for admin tables
+ * 
+ * Renders pagination controls with page numbers and navigation buttons.
+ * Preserves tab, sort, and user_id parameters in URLs.
+ * 
+ * @param int $currentPage Current page number (1-indexed)
+ * @param int $totalPages Total number of pages
+ * @param string $tab Active tab identifier ('users', 'listings', 'user_listings')
+ * @param string $sort Current sort option
+ * @param int $userId User ID for user_listings tab
+ * @return void
+ */
 function print_pagination(int $currentPage, int $totalPages, string $tab, string $sort = '', int $userId = 0): void {
     if ($totalPages <= 1) return;
 

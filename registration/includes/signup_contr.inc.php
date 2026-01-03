@@ -1,4 +1,14 @@
 <?php
+/**
+ * Registration Controller
+ * 
+ * Contains validation functions for registration form processing.
+ * Validates names, emails, passwords, and password confirmation.
+ * 
+ * @package NestlyHomes
+ * @subpackage Controllers
+ */
+
 declare(strict_types=1);
 
 function is_inputs_empty(string $firstName, string $surname, string $email, string $pwd, string $pwd_confirm) {
