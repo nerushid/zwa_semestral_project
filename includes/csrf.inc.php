@@ -6,8 +6,7 @@
  * CSRF (Cross-Site Request Forgery) tokens. Uses cryptographically secure
  * random bytes for token generation.
  * 
- * @package NestlyHomes
- * @subpackage Security
+ * @package NestlyHomes\Security
  */
 
 declare(strict_types=1);

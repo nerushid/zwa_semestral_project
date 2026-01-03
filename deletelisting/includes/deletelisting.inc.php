@@ -7,7 +7,6 @@
  * and removes database records.
  * 
  * @package NestlyHomes
- * @subpackage Handlers
  */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

@@ -5,8 +5,7 @@
  * Contains functions for rendering single listing page elements
  * including header navigation and image slider.
  * 
- * @package NestlyHomes
- * @subpackage Views
+ * @package NestlyHomes\Views
  */
 
 declare(strict_types=1);

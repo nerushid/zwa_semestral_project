@@ -7,7 +7,6 @@
  * Implements server-side pagination as required by project rules.
  * 
  * @package NestlyHomes
- * @subpackage Pages
  */
 
 require_once __DIR__ . '/../includes/config_session.php';

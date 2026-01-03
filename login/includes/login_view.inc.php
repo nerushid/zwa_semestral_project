@@ -5,8 +5,7 @@
  * Contains functions for rendering login form elements
  * with error handling and value persistence.
  * 
- * @package NestlyHomes
- * @subpackage Views
+ * @package NestlyHomes\Views
  */
 
 declare(strict_types=1);

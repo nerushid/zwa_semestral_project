@@ -7,7 +7,6 @@
  * functionality and form validation.
  * 
  * @package NestlyHomes
- * @subpackage Pages
  */
 
 require_once '../includes/config_session.php';

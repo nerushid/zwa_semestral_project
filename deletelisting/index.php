@@ -7,7 +7,6 @@
  * Shows listing preview before deletion.
  * 
  * @package NestlyHomes
- * @subpackage Pages
  */
 
 require_once '../includes/config_session.php';

@@ -5,8 +5,7 @@
  * Contains database functions for user registration operations.
  * Handles email uniqueness checks and new user creation.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

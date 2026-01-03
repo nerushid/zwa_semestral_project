@@ -5,8 +5,7 @@
  * Contains database functions for creating new listings
  * and associated image records.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

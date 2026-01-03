@@ -5,8 +5,7 @@
  * Contains database functions for single listing retrieval
  * including listing data, images, and owner information.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

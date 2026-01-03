@@ -5,8 +5,7 @@
  * Contains validation functions for registration form processing.
  * Validates names, emails, passwords, and password confirmation.
  * 
- * @package NestlyHomes
- * @subpackage Controllers
+ * @package NestlyHomes\Controllers
  */
 
 declare(strict_types=1);

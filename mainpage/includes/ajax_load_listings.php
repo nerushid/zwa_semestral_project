@@ -7,7 +7,6 @@
  * Used for filter updates without full page reload.
  * 
  * @package NestlyHomes
- * @subpackage AJAX
  */
 
 require_once __DIR__ . '/../../includes/config_session.php';

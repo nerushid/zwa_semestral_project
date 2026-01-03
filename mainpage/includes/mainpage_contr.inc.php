@@ -5,8 +5,7 @@
  * Contains validation functions for filter parameters.
  * Ensures all user input is validated against allowed values.
  * 
- * @package NestlyHomes
- * @subpackage Controllers
+ * @package NestlyHomes\Controllers
  */
 
 declare(strict_types=1);

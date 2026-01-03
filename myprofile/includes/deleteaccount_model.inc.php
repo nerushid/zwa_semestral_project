@@ -5,8 +5,7 @@
  * Contains database functions for account deletion.
  * Handles cascade deletion of listings and images.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

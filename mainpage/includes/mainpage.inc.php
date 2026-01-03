@@ -7,7 +7,6 @@
  * Implements POST-Redirect-GET pattern.
  * 
  * @package NestlyHomes
- * @subpackage Handlers
  */
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {

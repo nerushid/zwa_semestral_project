@@ -6,7 +6,6 @@
  * Includes image upload capability and CSRF protection.
  * 
  * @package NestlyHomes
- * @subpackage Authentication
  */
 
 require_once '../includes/config_session.php';

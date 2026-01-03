@@ -4,8 +4,7 @@
  * 
  * Contains validation functions for profile editing.
  * 
- * @package NestlyHomes
- * @subpackage Controllers
+ * @package NestlyHomes\Controllers
  */
 
 declare(strict_types=1);

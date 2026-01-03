@@ -4,8 +4,7 @@
  * 
  * Contains validation functions for login form processing.
  * 
- * @package NestlyHomes
- * @subpackage Controllers
+ * @package NestlyHomes\Controllers
  */
 
 declare(strict_types=1);

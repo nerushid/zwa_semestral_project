@@ -6,8 +6,7 @@
  * thumbnail (420px) and medium (1080px) sizes.
  * Supports JPEG, PNG, GIF, and WebP formats.
  * 
- * @package NestlyHomes
- * @subpackage Utilities
+ * @package NestlyHomes\Utilities
  */
 
 declare(strict_types=1);

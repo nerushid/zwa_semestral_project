@@ -6,7 +6,6 @@
  * Clears all session data to ensure complete logout.
  * 
  * @package NestlyHomes
- * @subpackage Authentication
  */
 
 session_start();

@@ -7,7 +7,6 @@
  * Requires authentication.
  * 
  * @package NestlyHomes
- * @subpackage Pages
  */
 
 require_once '../includes/config_session.php';

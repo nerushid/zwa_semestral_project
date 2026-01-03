@@ -6,7 +6,6 @@
  * listings for session storage.
  * 
  * @package NestlyHomes
- * @subpackage Helpers
  */
 
 require_once __DIR__ . '/../../includes/dbh.inc.php';

@@ -7,7 +7,6 @@
  * for true prepared statement support preventing SQL injection.
  * 
  * @package NestlyHomes
- * @subpackage Database
  * 
  * @var string $dsn Data Source Name for MySQL connection
  * @var string $dbusername Database username

@@ -7,7 +7,6 @@
  * listing management (delete) operations.
  * 
  * @package NestlyHomes
- * @subpackage Handlers
  */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

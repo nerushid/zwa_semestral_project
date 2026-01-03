@@ -7,7 +7,6 @@
  * Implements CSRF protection and secure password verification.
  * 
  * @package NestlyHomes
- * @subpackage Authentication
  */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

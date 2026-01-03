@@ -5,8 +5,7 @@
  * Contains shared database functions for user-related operations
  * used across multiple modules in the application.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

@@ -7,7 +7,6 @@
  * Requires administrator privileges.
  * 
  * @package NestlyHomes
- * @subpackage Administration
  */
 
 require_once '../includes/config_session.php';

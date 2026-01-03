@@ -6,7 +6,6 @@
  * Requires authentication and listing ownership verification.
  * 
  * @package NestlyHomes
- * @subpackage Pages
  */
 
 require_once '../includes/config_session.php';

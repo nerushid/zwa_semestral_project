@@ -6,7 +6,6 @@
  * Includes client-side validation and CSRF protection.
  * 
  * @package NestlyHomes
- * @subpackage Authentication
  */
 
 require_once '../includes/config_session.php';

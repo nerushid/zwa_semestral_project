@@ -5,8 +5,7 @@
  * Contains functions for rendering admin panel interface elements
  * including user tables, listing tables, and pagination.
  * 
- * @package NestlyHomes
- * @subpackage Views
+ * @package NestlyHomes\Views
  */
 
 declare(strict_types=1);

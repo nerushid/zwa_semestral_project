@@ -6,8 +6,7 @@
  * sorting options and edit/delete actions.
  * Requires authentication.
  * 
- * @package NestlyHomes
- * @subpackage Pages
+ * @package 
  */
 
 require_once '../includes/config_session.php';

@@ -5,8 +5,7 @@
  * Provides password validation against security requirements.
  * Enforces minimum length, maximum length, and character composition rules.
  * 
- * @package NestlyHomes
- * @subpackage Validation
+ * @package NestlyHomes\Validation
  */
 
 declare(strict_types=1);

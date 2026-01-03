@@ -4,8 +4,7 @@
  * 
  * Contains database functions for password management.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

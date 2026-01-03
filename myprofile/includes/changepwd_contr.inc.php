@@ -4,8 +4,7 @@
  * 
  * Contains validation functions for password change operations.
  * 
- * @package NestlyHomes
- * @subpackage Controllers
+ * @package NestlyHomes\Controllers
  */
 
 declare(strict_types=1);

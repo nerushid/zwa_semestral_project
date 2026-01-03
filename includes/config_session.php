@@ -6,8 +6,7 @@
  * to prevent session fixation attacks. Sets secure cookie parameters and manages
  * automatic session regeneration for both logged-in and anonymous users.
  * 
- * @package NestlyHomes
- * @subpackage Session
+ * @package NestlyHomes\Session
  */
 
 ini_set("session.use_only_cookies", 1);

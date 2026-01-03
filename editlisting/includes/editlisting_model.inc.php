@@ -4,8 +4,7 @@
  * 
  * Contains database functions for listing retrieval and updates.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

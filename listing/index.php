@@ -6,7 +6,6 @@
  * including image gallery, property details, and owner contact.
  * 
  * @package NestlyHomes
- * @subpackage Pages
  */
 
 require_once __DIR__ . '/../includes/config_session.php';

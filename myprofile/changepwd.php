@@ -6,7 +6,6 @@
  * Requires current password verification and new password confirmation.
  * 
  * @package NestlyHomes
- * @subpackage Pages
  */
 
 require_once '../includes/config_session.php';

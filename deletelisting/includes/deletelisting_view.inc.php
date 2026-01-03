@@ -4,8 +4,7 @@
  * 
  * Contains functions for rendering delete confirmation dialog elements.
  * 
- * @package NestlyHomes
- * @subpackage Views
+ * @package NestlyHomes\Views
  */
 
 declare(strict_types=1);

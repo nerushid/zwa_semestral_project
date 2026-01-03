@@ -5,8 +5,7 @@
  * Contains database functions for listing deletion operations.
  * Handles retrieval of listing images and database cleanup.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

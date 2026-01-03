@@ -5,8 +5,7 @@
  * Contains validation functions for listing edit form processing.
  * Validates location, layout, and other listing attributes.
  * 
- * @package NestlyHomes
- * @subpackage Controllers
+ * @package NestlyHomes\Controllers
  */
 
 declare(strict_types=1);

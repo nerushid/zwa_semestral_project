@@ -6,8 +6,7 @@
  * header navigation, listing cards, and pagination controls.
  * All output is properly escaped to prevent XSS attacks.
  * 
- * @package NestlyHomes
- * @subpackage Views
+ * @package NestlyHomes\Views
  */
 
 declare(strict_types=1);

@@ -5,8 +5,7 @@
  * Contains functions for rendering user's listings page elements
  * including sort dropdown, listing cards, and pagination.
  * 
- * @package NestlyHomes
- * @subpackage Views
+ * @package NestlyHomes\Views
  */
 
 declare(strict_types=1);

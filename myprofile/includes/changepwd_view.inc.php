@@ -5,8 +5,7 @@
  * Contains functions for rendering password change form elements
  * with error handling.
  * 
- * @package NestlyHomes
- * @subpackage Views
+ * @package NestlyHomes\Views
  */
 
 declare(strict_types=1);

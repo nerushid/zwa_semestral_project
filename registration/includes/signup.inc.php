@@ -7,7 +7,6 @@
  * and creates new user accounts with hashed passwords.
  * 
  * @package NestlyHomes
- * @subpackage Authentication
  */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

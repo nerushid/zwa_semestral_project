@@ -5,8 +5,7 @@
  * Contains database functions for administrative operations.
  * Handles user management, listing management, and cascade deletions.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

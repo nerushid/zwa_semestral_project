@@ -5,8 +5,7 @@
  * Contains database functions for retrieving user's listings
  * with pagination and sorting support.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);

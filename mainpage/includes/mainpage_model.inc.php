@@ -6,8 +6,7 @@
  * sorting, and pagination support. Uses prepared statements
  * for all database queries.
  * 
- * @package NestlyHomes
- * @subpackage Models
+ * @package NestlyHomes\Models
  */
 
 declare(strict_types=1);
