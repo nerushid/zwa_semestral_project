@@ -247,7 +247,7 @@ $listings = get_listings_with_limit($pdo, $startFrom, $resultsPerPage, $conditio
                 </select>
 
                 <!-- Price range selection -->
-                <label>Price Range:</label>
+                <label>Price Range (CZK):</label>
                 <div class="range-inputs">
                     <div>
                         <label for="price-from"><i>From</i></label>
