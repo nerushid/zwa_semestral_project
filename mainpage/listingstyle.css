@@ -167,7 +167,7 @@ section.listings article:hover {
     margin-top: 1em;
 }
 
-#strong {
+.price-strong {
     color: rgb(77, 77, 77);
     font-weight: bolder;
     font-size: 20pt;
@@ -278,6 +278,10 @@ section.listings article:hover {
         font-size: 0.9rem;
     }
 
+    .price-strong {
+        font-size: 18pt;
+    }
+
     /* Pagination adjustments */
     .pagination {
         flex-wrap: wrap;
@@ -331,8 +335,15 @@ section.listings article:hover {
         letter-spacing: 0.5px;
     }
 
-    #strong {
+    .price-strong {
         font-size: 16pt;
+    }
+
+    /* Pagination adjustments */
+    .pagination {
+        flex-wrap: wrap;
+        gap: 0.4em;
+        margin-top: 2em;
     }
 
     .pagination a,
@@ -419,7 +430,7 @@ section.listings article:hover {
         border-color: black !important;
     }
 
-    #strong {
+    .price-strong {
         font-weight: bold;
         color: black !important;
     }

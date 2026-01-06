@@ -38,8 +38,16 @@ function initImageSliders() {
             showImage(newIndex);
         }
         
-        if (nextBtn) nextBtn.addEventListener('click', nextImage);
-        if (prevBtn) prevBtn.addEventListener('click', prevImage);
+        if (nextBtn) {
+            nextBtn.addEventListener('click', nextImage);
+            // Prevent navigation when clicking button area
+            nextBtn.addEventListener('mousedown', (e) => e.preventDefault());
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', prevImage);
+            // Prevent navigation when clicking button area
+            prevBtn.addEventListener('mousedown', (e) => e.preventDefault());
+        }
         
         dots.forEach((dot, index) => {
             dot.addEventListener('click', (e) => {

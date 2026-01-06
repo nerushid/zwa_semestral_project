@@ -67,8 +67,7 @@ function print_listings(PDO $pdo, array $listings): void {
         $images = get_all_images_for_listing($pdo, $listingId);
         
         echo '<article class="listing-item" data-listing-id="' . $listingId . '">
-                <a href="../listing/index.php?id=' . $listingId . '">
-                    <div class="image-slider-container">';
+                <div class="image-slider-container">';
         
         if (!empty($images)) {
             echo '<div class="slider-images">';
@@ -95,11 +94,12 @@ function print_listings(PDO $pdo, array $listings): void {
         }
         
         echo '      </div>
-                    <p class="for-rent">Apartment for rent</p>
-                    <p class="flat-size">Flat '. $layout .', '. $area .' m²</p>
-                    <p class="flat-location"> Prague '. $praha .', '. $district .'</p>
-                    <p class="flat-cost"><span id="strong">'. $price .'</span> CZK/month</p>
-                </a> 
+                    <a href="../listing/index.php?id=' . $listingId . '">
+                        <p class="for-rent">Apartment for rent</p>
+                        <p class="flat-size">Flat '. $layout .', '. $area .' m²</p>
+                        <p class="flat-location"> Prague '. $praha .', '. $district .'</p>
+                        <p class="flat-cost"><span class="price-strong">'. $price .'</span> CZK/month</p>
+                    </a>
             </article>';
     }
 }

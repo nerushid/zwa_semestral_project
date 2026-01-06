@@ -64,14 +64,14 @@ $listings = get_listings_with_limit($pdo, $startFrom, $resultsPerPage, $conditio
     </header>
 
     <dialog id="logout-dialog">
-        <menu>
+        <div>
             <h2>Log Out</h2>
             <p>Are you sure you want to log out?</p>
             <div class="dialog-buttons">
                 <a href="../includes/logout.inc.php">Yes, Log Out</a>
                 <button>Cancel</button>
             </div>
-        </menu>
+        </div>
     </dialog>
 
     <main>
@@ -359,7 +359,6 @@ $listings = get_listings_with_limit($pdo, $startFrom, $resultsPerPage, $conditio
             </section>
 
             <?php print_pagination($page, $totalPages); ?>
-            </div>
         </div>
     </main>
 </body>
