@@ -37,7 +37,7 @@ if (!isset($_SESSION["user_id"])) {
     </header>
 
     <dialog id="deleteaccount-dialog">
-        <menu>
+        <div class="dialog-content">
             <h2>Delete Account</h2> 
             <p>Are you sure you want to delete your account? This action cannot be undone.</p>
             
@@ -48,7 +48,7 @@ if (!isset($_SESSION["user_id"])) {
                 </form>
                 <button id="cancel">Cancel</button>
             </div>
-        </menu>
+        </div>
     </dialog>
 
     <main>

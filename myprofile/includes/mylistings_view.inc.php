@@ -60,7 +60,7 @@ function print_listings(array $listings): void {
         
         echo '<div class="listing-card">
                 <div class="listing-header">
-                    <h3>Apartment for Rent</h3>
+                    <h2>Apartment for Rent</h2>
                     <span class="listing-date">'.$createdAt.'</span>
                 </div>
                 <div class="listing-details">
