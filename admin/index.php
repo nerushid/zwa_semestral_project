@@ -163,7 +163,7 @@ if ($activeTab === 'users') {
     </main>
 
     <dialog id="confirm-dialog">
-        <menu>
+        <div>
             <h2 id="dialog-title"></h2>
             <p id="dialog-message"></p>
             <div class="dialog-buttons">
@@ -174,7 +174,7 @@ if ($activeTab === 'users') {
                 </form>
                 <button class="cancel-btn">Cancel</button>
             </div>
-        </menu>
+        </div>
     </dialog>
 </body>
 </html>

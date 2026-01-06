@@ -337,7 +337,7 @@ dialog::backdrop {
     backdrop-filter: blur(2px);
 }
 
-dialog menu {
+dialog > div {
     display: flex;
     flex-direction: column;
     align-items: center;
